@@ -30,12 +30,21 @@ struct ContentView: View {
                     Image(systemName: "bell")
                         .font(.system(size: 24))
                 })
+                .tag(2)
+            
+            ProfileView()
+                .tabItem({
+                    Image(systemName: "person")
+                        .font(.system(size: 24))
+                })
+                .tag(3)
         }
         .edgesIgnoringSafeArea(.top)
         .accentColor(Color("Dark Blue"))
     }
     
     init() {
+        print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!)
         UITabBar.appearance().backgroundColor = UIColor(named: "Pink")
     }
 }
