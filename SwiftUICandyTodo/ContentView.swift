@@ -10,7 +10,19 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello World")        
+        TabView {
+            TodayListView()
+                .tabItem({
+                    Image(systemName: "list.bullet")
+                        .font(.title)
+                })
+        }
+        .edgesIgnoringSafeArea(.top)
+        .accentColor(Color("Dark Blue"))
+    }
+    
+    init() {
+        UITabBar.appearance().backgroundColor = UIColor(named: "Pink")
     }
 }
 

@@ -15,7 +15,7 @@ struct Todo: Identifiable {
     
     static var examples: [Todo] {
         return [
-            Todo(title: "Read Type Guidelin", completed: false),
+            Todo(title: "Read Type Guidelines", completed: false),
             Todo(title: "Complete Responsive Design", completed: false),
             Todo(title: "Bring Groceries", completed: true),
             Todo(title: "Take Muffay for walk", completed: true),

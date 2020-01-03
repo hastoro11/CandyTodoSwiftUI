@@ -10,6 +10,9 @@
 		8C724F9123BF329B00C48050 /* TodayListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C724F9023BF329B00C48050 /* TodayListView.swift */; };
 		8C724F9423BF363F00C48050 /* CommonViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C724F9323BF363F00C48050 /* CommonViews.swift */; };
 		8C724F9723BF436E00C48050 /* TodoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C724F9623BF436E00C48050 /* TodoModel.swift */; };
+		8C724F9923BF6E8900C48050 /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C724F9823BF6E8900C48050 /* TitleView.swift */; };
+		8C724F9B23BF6F3300C48050 /* TodosListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C724F9A23BF6F3300C48050 /* TodosListView.swift */; };
+		8C724F9D23BF708500C48050 /* TodoListViewRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C724F9C23BF708500C48050 /* TodoListViewRow.swift */; };
 		8CBBCF2E23BF2A1700D56452 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBBCF2D23BF2A1700D56452 /* AppDelegate.swift */; };
 		8CBBCF3023BF2A1700D56452 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBBCF2F23BF2A1700D56452 /* SceneDelegate.swift */; };
 		8CBBCF3323BF2A1700D56452 /* SwiftUICandyTodo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8CBBCF3123BF2A1700D56452 /* SwiftUICandyTodo.xcdatamodeld */; };
@@ -23,6 +26,9 @@
 		8C724F9023BF329B00C48050 /* TodayListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayListView.swift; sourceTree = "<group>"; };
 		8C724F9323BF363F00C48050 /* CommonViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonViews.swift; sourceTree = "<group>"; };
 		8C724F9623BF436E00C48050 /* TodoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoModel.swift; sourceTree = "<group>"; };
+		8C724F9823BF6E8900C48050 /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
+		8C724F9A23BF6F3300C48050 /* TodosListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodosListView.swift; sourceTree = "<group>"; };
+		8C724F9C23BF708500C48050 /* TodoListViewRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListViewRow.swift; sourceTree = "<group>"; };
 		8CBBCF2A23BF2A1700D56452 /* SwiftUICandyTodo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUICandyTodo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CBBCF2D23BF2A1700D56452 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8CBBCF2F23BF2A1700D56452 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,6 +63,9 @@
 			isa = PBXGroup;
 			children = (
 				8C724F9323BF363F00C48050 /* CommonViews.swift */,
+				8C724F9823BF6E8900C48050 /* TitleView.swift */,
+				8C724F9A23BF6F3300C48050 /* TodosListView.swift */,
+				8C724F9C23BF708500C48050 /* TodoListViewRow.swift */,
 			);
 			path = CommonViews;
 			sourceTree = "<group>";
@@ -185,10 +194,13 @@
 				8CBBCF2E23BF2A1700D56452 /* AppDelegate.swift in Sources */,
 				8C724F9423BF363F00C48050 /* CommonViews.swift in Sources */,
 				8CBBCF3023BF2A1700D56452 /* SceneDelegate.swift in Sources */,
+				8C724F9D23BF708500C48050 /* TodoListViewRow.swift in Sources */,
 				8C724F9123BF329B00C48050 /* TodayListView.swift in Sources */,
 				8CBBCF3523BF2A1700D56452 /* ContentView.swift in Sources */,
+				8C724F9B23BF6F3300C48050 /* TodosListView.swift in Sources */,
 				8C724F9723BF436E00C48050 /* TodoModel.swift in Sources */,
 				8CBBCF3323BF2A1700D56452 /* SwiftUICandyTodo.xcdatamodeld in Sources */,
+				8C724F9923BF6E8900C48050 /* TitleView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
