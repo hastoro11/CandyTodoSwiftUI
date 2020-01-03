@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  TodayListView.swift
 //  SwiftUICandyTodo
 //
 //  Created by Gabor Sornyei on 2020. 01. 03..
@@ -8,14 +8,14 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct TodayListView: View {
     var body: some View {
-        Text("Hello World")        
+        Text("Today's List")
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct TodayListView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        TodayListView()
     }
 }

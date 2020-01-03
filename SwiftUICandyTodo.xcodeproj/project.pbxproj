@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C724F9123BF329B00C48050 /* TodayListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C724F9023BF329B00C48050 /* TodayListView.swift */; };
+		8C724F9423BF363F00C48050 /* CommonViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C724F9323BF363F00C48050 /* CommonViews.swift */; };
 		8CBBCF2E23BF2A1700D56452 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBBCF2D23BF2A1700D56452 /* AppDelegate.swift */; };
 		8CBBCF3023BF2A1700D56452 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBBCF2F23BF2A1700D56452 /* SceneDelegate.swift */; };
 		8CBBCF3323BF2A1700D56452 /* SwiftUICandyTodo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8CBBCF3123BF2A1700D56452 /* SwiftUICandyTodo.xcdatamodeld */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8C724F9023BF329B00C48050 /* TodayListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayListView.swift; sourceTree = "<group>"; };
+		8C724F9323BF363F00C48050 /* CommonViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonViews.swift; sourceTree = "<group>"; };
 		8CBBCF2A23BF2A1700D56452 /* SwiftUICandyTodo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUICandyTodo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CBBCF2D23BF2A1700D56452 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8CBBCF2F23BF2A1700D56452 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +43,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8C724F8F23BF327800C48050 /* TodaysList */ = {
+			isa = PBXGroup;
+			children = (
+				8C724F9023BF329B00C48050 /* TodayListView.swift */,
+			);
+			path = TodaysList;
+			sourceTree = "<group>";
+		};
+		8C724F9223BF35FD00C48050 /* CommonViews */ = {
+			isa = PBXGroup;
+			children = (
+				8C724F9323BF363F00C48050 /* CommonViews.swift */,
+			);
+			path = CommonViews;
+			sourceTree = "<group>";
+		};
 		8CBBCF2123BF2A1700D56452 = {
 			isa = PBXGroup;
 			children = (
@@ -58,6 +78,8 @@
 		8CBBCF2C23BF2A1700D56452 /* SwiftUICandyTodo */ = {
 			isa = PBXGroup;
 			children = (
+				8C724F9223BF35FD00C48050 /* CommonViews */,
+				8C724F8F23BF327800C48050 /* TodaysList */,
 				8CBBCF2D23BF2A1700D56452 /* AppDelegate.swift */,
 				8CBBCF2F23BF2A1700D56452 /* SceneDelegate.swift */,
 				8CBBCF3423BF2A1700D56452 /* ContentView.swift */,
@@ -150,7 +172,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8CBBCF2E23BF2A1700D56452 /* AppDelegate.swift in Sources */,
+				8C724F9423BF363F00C48050 /* CommonViews.swift in Sources */,
 				8CBBCF3023BF2A1700D56452 /* SceneDelegate.swift in Sources */,
+				8C724F9123BF329B00C48050 /* TodayListView.swift in Sources */,
 				8CBBCF3523BF2A1700D56452 /* ContentView.swift in Sources */,
 				8CBBCF3323BF2A1700D56452 /* SwiftUICandyTodo.xcdatamodeld in Sources */,
 			);
@@ -297,10 +321,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.sornyei.SwiftUICandyTodo;
+				MARKETING_VERSION = 2.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sornyei.CandyTodo123;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -317,10 +342,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.sornyei.SwiftUICandyTodo;
+				MARKETING_VERSION = 2.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sornyei.CandyTodo123;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
