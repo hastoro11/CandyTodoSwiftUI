@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var showNewTodoView = false
     var body: some View {
         ZStack {
             TabView {
@@ -51,7 +52,9 @@ struct ContentView: View {
             .accentColor(Color("Dark Blue"))
             VStack {
                 Spacer()
-                Button(action: {}, label: {
+                Button(action: {
+                    self.showNewTodoView = true
+                }, label: {
                     Image(systemName: "plus")
                         .font(.title)
                         .foregroundColor(.white)
@@ -63,6 +66,9 @@ struct ContentView: View {
                     .shadow(radius: 10, x: 0, y: 10)
             }
         }
+        .sheet(isPresented: $showNewTodoView, content: {
+            NewTodoView()
+        })
     }
     
     init() {

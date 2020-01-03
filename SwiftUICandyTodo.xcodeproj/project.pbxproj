@@ -20,6 +20,7 @@
 		8C724FAC23BFA2A500C48050 /* NotificationListViewRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C724FAB23BFA2A500C48050 /* NotificationListViewRow.swift */; };
 		8C724FAE23BFAB5500C48050 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C724FAD23BFAB5500C48050 /* UserModel.swift */; };
 		8C724FB123BFABBD00C48050 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C724FB023BFABBD00C48050 /* ProfileView.swift */; };
+		8C724FB523BFEA5000C48050 /* NewTodoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C724FB423BFEA5000C48050 /* NewTodoView.swift */; };
 		8CBBCF2E23BF2A1700D56452 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBBCF2D23BF2A1700D56452 /* AppDelegate.swift */; };
 		8CBBCF3023BF2A1700D56452 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBBCF2F23BF2A1700D56452 /* SceneDelegate.swift */; };
 		8CBBCF3323BF2A1700D56452 /* SwiftUICandyTodo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8CBBCF3123BF2A1700D56452 /* SwiftUICandyTodo.xcdatamodeld */; };
@@ -43,6 +44,7 @@
 		8C724FAB23BFA2A500C48050 /* NotificationListViewRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationListViewRow.swift; sourceTree = "<group>"; };
 		8C724FAD23BFAB5500C48050 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		8C724FB023BFABBD00C48050 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		8C724FB423BFEA5000C48050 /* NewTodoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTodoView.swift; sourceTree = "<group>"; };
 		8CBBCF2A23BF2A1700D56452 /* SwiftUICandyTodo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUICandyTodo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CBBCF2D23BF2A1700D56452 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8CBBCF2F23BF2A1700D56452 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -139,6 +141,14 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		8C724FB323BFEA3800C48050 /* NewTodo */ = {
+			isa = PBXGroup;
+			children = (
+				8C724FB423BFEA5000C48050 /* NewTodoView.swift */,
+			);
+			path = NewTodo;
+			sourceTree = "<group>";
+		};
 		8CBBCF2123BF2A1700D56452 = {
 			isa = PBXGroup;
 			children = (
@@ -165,6 +175,7 @@
 				8C724FA123BF872A00C48050 /* UpcomingList */,
 				8C724FA623BFA1C500C48050 /* Notifications */,
 				8C724FAF23BFABA700C48050 /* ProfileView */,
+				8C724FB323BFEA3800C48050 /* NewTodo */,
 				8CBBCF3423BF2A1700D56452 /* ContentView.swift */,
 				8C724FB223BFB53300C48050 /* Supporting Files */,
 				8CBBCF3E23BF2A1800D56452 /* Info.plist */,
@@ -255,6 +266,7 @@
 				8CBBCF2E23BF2A1700D56452 /* AppDelegate.swift in Sources */,
 				8C724F9423BF363F00C48050 /* CommonViews.swift in Sources */,
 				8CBBCF3023BF2A1700D56452 /* SceneDelegate.swift in Sources */,
+				8C724FB523BFEA5000C48050 /* NewTodoView.swift in Sources */,
 				8C724F9D23BF708500C48050 /* TodoListViewRow.swift in Sources */,
 				8C724F9123BF329B00C48050 /* TodayListView.swift in Sources */,
 				8CBBCF3523BF2A1700D56452 /* ContentView.swift in Sources */,
