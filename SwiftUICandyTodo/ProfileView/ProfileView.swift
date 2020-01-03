@@ -14,7 +14,7 @@ struct ProfileView: View {
     @State var vibrateOnAlert = true
     var body: some View {
         VStack {
-            TitleView(title: "PROFILE", subtitle: user.name, email: user.email, image: user.image)
+            TitleView(title: "PROFILE", user: user)
             
             List {
                 Section(header: SectionHeader(title: "Notification Settings")) {

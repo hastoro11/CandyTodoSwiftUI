@@ -10,9 +10,8 @@ import SwiftUI
 
 struct TitleView: View {
     var title: String
-    var subtitle: String
-    var email: String?
-    var image: String?
+    var subtitle: String = ""
+    var user: User?
     var body: some View {
         ZStack(alignment: .top) {
             Color("Pink")
@@ -33,24 +32,24 @@ struct TitleView: View {
                         .shadow(color: Color.black, radius: 3, x: 0, y: 3)
                 }
                 HStack(spacing: 20) {
-                    if image != nil {
-                        Image(uiImage: getProfileImage(image!))
+                    if user != nil {
+                        Image(uiImage: getProfileImage(user!.image))
                             .resizable()
                             .frame(width: 60, height: 60)
                             .background(Color.red)
                         .clipShape(Circle())
                     }
                     VStack(alignment: .leading) {
-                        Text(subtitle)
+                        Text(user == nil ? subtitle : user!.name)
                             .font(.custom("Avenir-Black", size: 32))
                             .frame(maxWidth: .infinity, alignment: .leading)
                         
-                        if email != nil {
-                            Text(email!)
+                        if user != nil {
+                            Text(user!.email)
                                 .font(.custom("Avenir-Book", size: 16))
                         }
                     }
-                    .padding(.vertical, email == nil ? 30 : 10)
+                    .padding(.vertical, user == nil ? 30 : 10)
                 }                
                 .padding(.horizontal, 30)
                 
@@ -74,6 +73,6 @@ struct TitleView: View {
 
 struct TitleView_Previews: PreviewProvider {
     static var previews: some View {
-        TitleView(title: "TO-DO", subtitle: "Today's list", email: "email@email.com", image: "Razewarelogo_1024.png").previewLayout(.sizeThatFits)
+        TitleView(title: "TO-DO", subtitle: "Today's list", user: User.example ).previewLayout(.sizeThatFits)
     }
 }

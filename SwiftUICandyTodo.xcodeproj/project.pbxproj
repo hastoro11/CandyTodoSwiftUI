@@ -127,6 +127,18 @@
 			path = ProfileView;
 			sourceTree = "<group>";
 		};
+		8C724FB223BFB53300C48050 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8CBBCF3623BF2A1800D56452 /* Assets.xcassets */,
+				8CBBCF3B23BF2A1800D56452 /* LaunchScreen.storyboard */,
+				8CBBCF3123BF2A1700D56452 /* SwiftUICandyTodo.xcdatamodeld */,
+				8CBBCF2D23BF2A1700D56452 /* AppDelegate.swift */,
+				8CBBCF2F23BF2A1700D56452 /* SceneDelegate.swift */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		8CBBCF2123BF2A1700D56452 = {
 			isa = PBXGroup;
 			children = (
@@ -153,13 +165,9 @@
 				8C724FA123BF872A00C48050 /* UpcomingList */,
 				8C724FA623BFA1C500C48050 /* Notifications */,
 				8C724FAF23BFABA700C48050 /* ProfileView */,
-				8CBBCF2D23BF2A1700D56452 /* AppDelegate.swift */,
-				8CBBCF2F23BF2A1700D56452 /* SceneDelegate.swift */,
 				8CBBCF3423BF2A1700D56452 /* ContentView.swift */,
-				8CBBCF3623BF2A1800D56452 /* Assets.xcassets */,
-				8CBBCF3B23BF2A1800D56452 /* LaunchScreen.storyboard */,
+				8C724FB223BFB53300C48050 /* Supporting Files */,
 				8CBBCF3E23BF2A1800D56452 /* Info.plist */,
-				8CBBCF3123BF2A1700D56452 /* SwiftUICandyTodo.xcdatamodeld */,
 				8CBBCF3823BF2A1800D56452 /* Preview Content */,
 			);
 			path = SwiftUICandyTodo;
