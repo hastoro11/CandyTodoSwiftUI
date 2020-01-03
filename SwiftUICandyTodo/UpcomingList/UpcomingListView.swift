@@ -14,9 +14,9 @@ struct UpcomingListView: View {
         VStack {
             TitleView(title: "SCHEDULER", subtitle: "Upcoming tasks")
             List {
-                ForEach(Array(Utils.upcomingTodos(todos).keys.sorted()), id:\.self) {key in
-                    Section(header: SectionHeader(title: Utils.dateToString(key))) {
-                        ForEach(Utils.upcomingTodos(self.todos)[key]!) {todo in
+                ForEach(Utils.upcomingTodos(todos), id:\.date) {dailyTodo in
+                    Section(header: SectionHeader(title: dailyTodo.date)) {
+                        ForEach(dailyTodo.todos) {todo in
                             TodoListViewRow(todo: todo)
                         }
                     }
@@ -28,6 +28,7 @@ struct UpcomingListView: View {
             Spacer()
         }
     }
+    
 }
 
 

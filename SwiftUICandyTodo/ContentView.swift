@@ -14,14 +14,14 @@ struct ContentView: View {
             TodayListView()
                 .tabItem({
                     Image(systemName: "list.bullet")
-                        .font(.headline)
+                        .font(.system(size: 24))                        
                 })
                 .tag(0)
             
             UpcomingListView()
                 .tabItem({
                     Image(systemName: "clock")
-                        .font(.headline)
+                        .font(.system(size: 24))
                 })
                 .tag(1)
         }

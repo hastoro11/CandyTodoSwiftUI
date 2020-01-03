@@ -11,36 +11,44 @@ import Foundation
 class Utils {
     
     static func dateToString(_ dt: Date) -> String {
-        let now = Date()
         let formatter = DateFormatter()
-        formatter.dateStyle = .medium
+        formatter.dateStyle = .medium        
         
-        let difference = dt.timeIntervalSinceReferenceDate - now.timeIntervalSinceReferenceDate
-        
-        if difference < 24 * 60 * 60 {
+        if Calendar.current.isDateInToday(dt) {
             return "Today"
-        } else if difference < 2 * 24 * 60 * 60 {
+        } else if Calendar.current.isDateInTomorrow(dt) {
             return "Tomorrow"
-        } else {
-            return formatter.string(from: dt)
         }
-    }
+        
+        return formatter.string(from: dt)
+    }        
 
-    static func upcomingTodos(_ todos: [Todo]) -> [Date: [Todo]] {
+    static func upcomingTodos(_ todos: [Todo]) -> [DailyTodo] {
         let todos = todos.filter({!Calendar.current.isDateInToday($0.due)})
-        var list = [Date: [Todo]]()
+        
+        var dailyTodos = [DailyTodo]()
 
         for todo in todos {
-            if list.keys.contains(where: { (dt) -> Bool in
-                dt == dayFromDate(todo.due)
-            }) {
-                list[dayFromDate(todo.due)]?.append(todo)
-            } else {
-                list[dayFromDate(todo.due)] = [todo]
+            let date = dateToString(todo.due)
+            var found = false
+            var foundIndex = -1
+            for index in (0..<dailyTodos.count) {
+                if dailyTodos[index].date == date {
+                    found = true
+                    foundIndex = index
+                    break
+                }
             }
+            if found {
+                dailyTodos[foundIndex].todos.append(todo)
+            } else {
+                let dailyTodo = DailyTodo(date: date, todos: [todo])
+                dailyTodos.append(dailyTodo)
+            }
+        
         }
         
-        return list
+        return dailyTodos
     }
     
     private static func dayFromDate(_ dt: Date) -> Date {
