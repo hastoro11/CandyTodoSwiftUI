@@ -15,7 +15,9 @@
 		8C724F9D23BF708500C48050 /* TodoListViewRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C724F9C23BF708500C48050 /* TodoListViewRow.swift */; };
 		8C724FA023BF860900C48050 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C724F9F23BF860900C48050 /* Utils.swift */; };
 		8C724FA323BF874500C48050 /* UpcomingListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C724FA223BF874500C48050 /* UpcomingListView.swift */; };
-		8C724FA523BFA08300C48050 /* DailyTodo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C724FA423BFA08300C48050 /* DailyTodo.swift */; };
+		8C724FA823BFA1E000C48050 /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C724FA723BFA1E000C48050 /* NotificationsView.swift */; };
+		8C724FAA23BFA23A00C48050 /* CandyNotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C724FA923BFA23A00C48050 /* CandyNotificationModel.swift */; };
+		8C724FAC23BFA2A500C48050 /* NotificationListViewRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C724FAB23BFA2A500C48050 /* NotificationListViewRow.swift */; };
 		8CBBCF2E23BF2A1700D56452 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBBCF2D23BF2A1700D56452 /* AppDelegate.swift */; };
 		8CBBCF3023BF2A1700D56452 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBBCF2F23BF2A1700D56452 /* SceneDelegate.swift */; };
 		8CBBCF3323BF2A1700D56452 /* SwiftUICandyTodo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8CBBCF3123BF2A1700D56452 /* SwiftUICandyTodo.xcdatamodeld */; };
@@ -34,7 +36,9 @@
 		8C724F9C23BF708500C48050 /* TodoListViewRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListViewRow.swift; sourceTree = "<group>"; };
 		8C724F9F23BF860900C48050 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		8C724FA223BF874500C48050 /* UpcomingListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingListView.swift; sourceTree = "<group>"; };
-		8C724FA423BFA08300C48050 /* DailyTodo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyTodo.swift; sourceTree = "<group>"; };
+		8C724FA723BFA1E000C48050 /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
+		8C724FA923BFA23A00C48050 /* CandyNotificationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandyNotificationModel.swift; sourceTree = "<group>"; };
+		8C724FAB23BFA2A500C48050 /* NotificationListViewRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationListViewRow.swift; sourceTree = "<group>"; };
 		8CBBCF2A23BF2A1700D56452 /* SwiftUICandyTodo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUICandyTodo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CBBCF2D23BF2A1700D56452 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8CBBCF2F23BF2A1700D56452 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +76,7 @@
 				8C724F9823BF6E8900C48050 /* TitleView.swift */,
 				8C724F9A23BF6F3300C48050 /* TodosListView.swift */,
 				8C724F9C23BF708500C48050 /* TodoListViewRow.swift */,
+				8C724FAB23BFA2A500C48050 /* NotificationListViewRow.swift */,
 			);
 			path = CommonViews;
 			sourceTree = "<group>";
@@ -80,7 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				8C724F9623BF436E00C48050 /* TodoModel.swift */,
-				8C724FA423BFA08300C48050 /* DailyTodo.swift */,
+				8C724FA923BFA23A00C48050 /* CandyNotificationModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -99,6 +104,14 @@
 				8C724FA223BF874500C48050 /* UpcomingListView.swift */,
 			);
 			path = UpcomingList;
+			sourceTree = "<group>";
+		};
+		8C724FA623BFA1C500C48050 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				8C724FA723BFA1E000C48050 /* NotificationsView.swift */,
+			);
+			path = Notifications;
 			sourceTree = "<group>";
 		};
 		8CBBCF2123BF2A1700D56452 = {
@@ -125,6 +138,7 @@
 				8C724F9223BF35FD00C48050 /* CommonViews */,
 				8C724F8F23BF327800C48050 /* TodaysList */,
 				8C724FA123BF872A00C48050 /* UpcomingList */,
+				8C724FA623BFA1C500C48050 /* Notifications */,
 				8CBBCF2D23BF2A1700D56452 /* AppDelegate.swift */,
 				8CBBCF2F23BF2A1700D56452 /* SceneDelegate.swift */,
 				8CBBCF3423BF2A1700D56452 /* ContentView.swift */,
@@ -216,7 +230,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8C724FA523BFA08300C48050 /* DailyTodo.swift in Sources */,
 				8CBBCF2E23BF2A1700D56452 /* AppDelegate.swift in Sources */,
 				8C724F9423BF363F00C48050 /* CommonViews.swift in Sources */,
 				8CBBCF3023BF2A1700D56452 /* SceneDelegate.swift in Sources */,
@@ -228,7 +241,10 @@
 				8C724FA023BF860900C48050 /* Utils.swift in Sources */,
 				8C724F9723BF436E00C48050 /* TodoModel.swift in Sources */,
 				8CBBCF3323BF2A1700D56452 /* SwiftUICandyTodo.xcdatamodeld in Sources */,
+				8C724FAA23BFA23A00C48050 /* CandyNotificationModel.swift in Sources */,
 				8C724F9923BF6E8900C48050 /* TitleView.swift in Sources */,
+				8C724FAC23BFA2A500C48050 /* NotificationListViewRow.swift in Sources */,
+				8C724FA823BFA1E000C48050 /* NotificationsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

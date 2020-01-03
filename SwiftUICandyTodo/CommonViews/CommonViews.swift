@@ -27,6 +27,16 @@ struct CheckedView: View {
     }
 }
 
+struct InfoView: View {
+    var size: CGFloat = 32.0
+    var body: some View {
+        RoundedRectangle(cornerRadius: 10)
+            .fill(Color("Green"))
+            .frame(width: size, height: size)
+            .overlay(Image(systemName: "exclamationmark").foregroundColor(Color("Dark Blue")))
+    }
+}
+
 struct SectionHeader: View {
     var title: String
     var body: some View {

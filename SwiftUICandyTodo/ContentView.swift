@@ -24,6 +24,12 @@ struct ContentView: View {
                         .font(.system(size: 24))
                 })
                 .tag(1)
+            
+            NotificationsView()
+                .tabItem({
+                    Image(systemName: "bell")
+                        .font(.system(size: 24))
+                })
         }
         .edgesIgnoringSafeArea(.top)
         .accentColor(Color("Dark Blue"))

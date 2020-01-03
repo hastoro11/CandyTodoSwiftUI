@@ -30,3 +30,9 @@ struct Todo: Identifiable {
         ]
     }
 }
+
+
+struct DailyTodo {
+    var date: String
+    var todos: [Todo]
+}
