@@ -13,6 +13,8 @@
 		8C724F9923BF6E8900C48050 /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C724F9823BF6E8900C48050 /* TitleView.swift */; };
 		8C724F9B23BF6F3300C48050 /* TodosListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C724F9A23BF6F3300C48050 /* TodosListView.swift */; };
 		8C724F9D23BF708500C48050 /* TodoListViewRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C724F9C23BF708500C48050 /* TodoListViewRow.swift */; };
+		8C724FA023BF860900C48050 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C724F9F23BF860900C48050 /* Utils.swift */; };
+		8C724FA323BF874500C48050 /* UpcomingListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C724FA223BF874500C48050 /* UpcomingListView.swift */; };
 		8CBBCF2E23BF2A1700D56452 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBBCF2D23BF2A1700D56452 /* AppDelegate.swift */; };
 		8CBBCF3023BF2A1700D56452 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBBCF2F23BF2A1700D56452 /* SceneDelegate.swift */; };
 		8CBBCF3323BF2A1700D56452 /* SwiftUICandyTodo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8CBBCF3123BF2A1700D56452 /* SwiftUICandyTodo.xcdatamodeld */; };
@@ -29,6 +31,8 @@
 		8C724F9823BF6E8900C48050 /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 		8C724F9A23BF6F3300C48050 /* TodosListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodosListView.swift; sourceTree = "<group>"; };
 		8C724F9C23BF708500C48050 /* TodoListViewRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListViewRow.swift; sourceTree = "<group>"; };
+		8C724F9F23BF860900C48050 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		8C724FA223BF874500C48050 /* UpcomingListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingListView.swift; sourceTree = "<group>"; };
 		8CBBCF2A23BF2A1700D56452 /* SwiftUICandyTodo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUICandyTodo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CBBCF2D23BF2A1700D56452 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8CBBCF2F23BF2A1700D56452 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +82,22 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		8C724F9E23BF85FA00C48050 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				8C724F9F23BF860900C48050 /* Utils.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		8C724FA123BF872A00C48050 /* UpcomingList */ = {
+			isa = PBXGroup;
+			children = (
+				8C724FA223BF874500C48050 /* UpcomingListView.swift */,
+			);
+			path = UpcomingList;
+			sourceTree = "<group>";
+		};
 		8CBBCF2123BF2A1700D56452 = {
 			isa = PBXGroup;
 			children = (
@@ -97,9 +117,11 @@
 		8CBBCF2C23BF2A1700D56452 /* SwiftUICandyTodo */ = {
 			isa = PBXGroup;
 			children = (
+				8C724F9E23BF85FA00C48050 /* Utils */,
 				8C724F9523BF435D00C48050 /* Model */,
 				8C724F9223BF35FD00C48050 /* CommonViews */,
 				8C724F8F23BF327800C48050 /* TodaysList */,
+				8C724FA123BF872A00C48050 /* UpcomingList */,
 				8CBBCF2D23BF2A1700D56452 /* AppDelegate.swift */,
 				8CBBCF2F23BF2A1700D56452 /* SceneDelegate.swift */,
 				8CBBCF3423BF2A1700D56452 /* ContentView.swift */,
@@ -197,7 +219,9 @@
 				8C724F9D23BF708500C48050 /* TodoListViewRow.swift in Sources */,
 				8C724F9123BF329B00C48050 /* TodayListView.swift in Sources */,
 				8CBBCF3523BF2A1700D56452 /* ContentView.swift in Sources */,
+				8C724FA323BF874500C48050 /* UpcomingListView.swift in Sources */,
 				8C724F9B23BF6F3300C48050 /* TodosListView.swift in Sources */,
+				8C724FA023BF860900C48050 /* Utils.swift in Sources */,
 				8C724F9723BF436E00C48050 /* TodoModel.swift in Sources */,
 				8CBBCF3323BF2A1700D56452 /* SwiftUICandyTodo.xcdatamodeld in Sources */,
 				8C724F9923BF6E8900C48050 /* TitleView.swift in Sources */,

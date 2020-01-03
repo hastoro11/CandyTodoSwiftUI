@@ -27,6 +27,27 @@ struct CheckedView: View {
     }
 }
 
+struct SectionHeader: View {
+    var title: String
+    var body: some View {
+        HStack {
+            Text(title)
+                .font(.custom("Avenir-Book", size: 16))
+                .foregroundColor(Color("Light Blue"))
+                .padding()
+                .offset(x: 30, y: 0)
+            Spacer()
+        }
+        .background(Color.white)
+        .listRowInsets(EdgeInsets(
+            top: 0,
+            leading: 0,
+            bottom: 0,
+            trailing: 0))
+    }
+}
+
+
 struct UncheckedView_Previews: PreviewProvider {
     static var previews: some View {
         CheckedView()

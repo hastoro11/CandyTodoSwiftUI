@@ -19,7 +19,7 @@ struct TitleView: View {
             
             VStack {
                 VStack(spacing: 0) {
-                    Text("TO-DO")
+                    Text(title)
                         .font(.custom("Avenir-Black", size: 20))
                         .kerning(10)
                         .frame(maxWidth: .infinity)
@@ -31,7 +31,7 @@ struct TitleView: View {
                         .shadow(color: Color.black, radius: 3, x: 0, y: 3)
                 }
                 
-                Text("Today's list")
+                Text(subtitle)
                     .font(.custom("Avenir-Black", size: 32))
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.vertical, 30)

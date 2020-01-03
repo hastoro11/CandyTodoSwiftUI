@@ -14,8 +14,16 @@ struct ContentView: View {
             TodayListView()
                 .tabItem({
                     Image(systemName: "list.bullet")
-                        .font(.title)
+                        .font(.headline)
                 })
+                .tag(0)
+            
+            UpcomingListView()
+                .tabItem({
+                    Image(systemName: "clock")
+                        .font(.headline)
+                })
+                .tag(1)
         }
         .edgesIgnoringSafeArea(.top)
         .accentColor(Color("Dark Blue"))
