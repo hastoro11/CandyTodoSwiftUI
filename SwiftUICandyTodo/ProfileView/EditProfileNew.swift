@@ -12,6 +12,8 @@ struct EditProfileNew: View {
     @Environment(\.presentationMode) var presentationMode
     @State var name = ""
     @State var email = ""
+    @State var showSelectPhotoView = false
+    @State var uiImage: UIImage?
     var body: some View {
         ZStack(alignment: .top) {
             Color("Pink")
@@ -45,13 +47,24 @@ struct EditProfileNew: View {
                 .foregroundColor(Color("Dark Blue"))
 //                .frame(maxHeight: 400)
                 
-                Button(action: {}, label: {
-                    Image(systemName: "person.circle")
-                        .resizable()
-                        .frame(width: 128, height: 128)
-                        .foregroundColor(Color("Light Blue"))
+                Button(action: {
+                    self.showSelectPhotoView = true
+                }, label: {
+                    if uiImage == nil {
+                        Image(systemName: "person.circle")
+                            .resizable()
+                            .frame(width: 128, height: 128)
+                            .foregroundColor(Color("Light Blue"))
+                    } else {
+                        Image(uiImage: uiImage!)
+                            .resizable()
+                            .frame(width: 128, height: 128)
+                            .clipShape(Circle())
+                    }
+                     
                 })
                     .padding(.top, 90)
+                    .buttonStyle(PlainButtonStyle())
                 Form {
                     
                     Text("Email")
@@ -80,6 +93,9 @@ struct EditProfileNew: View {
                     .padding(.bottom, 10)
                     .shadow(radius: 10, x: 0, y: 10)
             }
+            .sheet(isPresented: $showSelectPhotoView, content: {
+                SelectPhotoView(uiImage: self.$uiImage)
+            })
         }
     }
 }

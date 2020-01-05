@@ -24,6 +24,7 @@
 		8C990A8823C1F445001E4C87 /* EditProfileNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C990A8723C1F445001E4C87 /* EditProfileNew.swift */; };
 		8C990A8A23C1F7D3001E4C87 /* CustomTextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C990A8923C1F7D3001E4C87 /* CustomTextFieldStyle.swift */; };
 		8C990A8C23C1FB35001E4C87 /* ProfileTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C990A8B23C1FB35001E4C87 /* ProfileTitleView.swift */; };
+		8C990A8E23C20B9F001E4C87 /* SelectPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C990A8D23C20B9F001E4C87 /* SelectPhotoView.swift */; };
 		8CBBCF2E23BF2A1700D56452 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBBCF2D23BF2A1700D56452 /* AppDelegate.swift */; };
 		8CBBCF3023BF2A1700D56452 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBBCF2F23BF2A1700D56452 /* SceneDelegate.swift */; };
 		8CBBCF3323BF2A1700D56452 /* SwiftUICandyTodo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8CBBCF3123BF2A1700D56452 /* SwiftUICandyTodo.xcdatamodeld */; };
@@ -51,6 +52,7 @@
 		8C990A8723C1F445001E4C87 /* EditProfileNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileNew.swift; sourceTree = "<group>"; };
 		8C990A8923C1F7D3001E4C87 /* CustomTextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFieldStyle.swift; sourceTree = "<group>"; };
 		8C990A8B23C1FB35001E4C87 /* ProfileTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTitleView.swift; sourceTree = "<group>"; };
+		8C990A8D23C20B9F001E4C87 /* SelectPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPhotoView.swift; sourceTree = "<group>"; };
 		8CBBCF2A23BF2A1700D56452 /* SwiftUICandyTodo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUICandyTodo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CBBCF2D23BF2A1700D56452 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8CBBCF2F23BF2A1700D56452 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 			children = (
 				8C724FB023BFABBD00C48050 /* ProfileView.swift */,
 				8C990A8723C1F445001E4C87 /* EditProfileNew.swift */,
+				8C990A8D23C20B9F001E4C87 /* SelectPhotoView.swift */,
 			);
 			path = ProfileView;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 				8C990A8823C1F445001E4C87 /* EditProfileNew.swift in Sources */,
 				8C724F9123BF329B00C48050 /* TodayListView.swift in Sources */,
 				8CBBCF3523BF2A1700D56452 /* ContentView.swift in Sources */,
+				8C990A8E23C20B9F001E4C87 /* SelectPhotoView.swift in Sources */,
 				8C724FA323BF874500C48050 /* UpcomingListView.swift in Sources */,
 				8C724F9B23BF6F3300C48050 /* TodosListView.swift in Sources */,
 				8C724FA023BF860900C48050 /* Utils.swift in Sources */,
