@@ -47,7 +47,7 @@ class Utils {
     }        
 
     static func upcomingTodos(_ todos: [Todo]) -> [DailyTodo] {
-        let todos = todos.filter({!Calendar.current.isDateInToday($0.due)})
+        let todos = todos.filter({$0.due >= Date()})
         
         var dailyTodos = [DailyTodo]()
 

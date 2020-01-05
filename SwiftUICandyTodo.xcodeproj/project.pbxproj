@@ -21,6 +21,9 @@
 		8C724FAE23BFAB5500C48050 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C724FAD23BFAB5500C48050 /* UserModel.swift */; };
 		8C724FB123BFABBD00C48050 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C724FB023BFABBD00C48050 /* ProfileView.swift */; };
 		8C724FB523BFEA5000C48050 /* NewTodoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C724FB423BFEA5000C48050 /* NewTodoView.swift */; };
+		8C990A8823C1F445001E4C87 /* EditProfileNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C990A8723C1F445001E4C87 /* EditProfileNew.swift */; };
+		8C990A8A23C1F7D3001E4C87 /* CustomTextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C990A8923C1F7D3001E4C87 /* CustomTextFieldStyle.swift */; };
+		8C990A8C23C1FB35001E4C87 /* ProfileTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C990A8B23C1FB35001E4C87 /* ProfileTitleView.swift */; };
 		8CBBCF2E23BF2A1700D56452 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBBCF2D23BF2A1700D56452 /* AppDelegate.swift */; };
 		8CBBCF3023BF2A1700D56452 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBBCF2F23BF2A1700D56452 /* SceneDelegate.swift */; };
 		8CBBCF3323BF2A1700D56452 /* SwiftUICandyTodo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8CBBCF3123BF2A1700D56452 /* SwiftUICandyTodo.xcdatamodeld */; };
@@ -45,6 +48,9 @@
 		8C724FAD23BFAB5500C48050 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		8C724FB023BFABBD00C48050 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		8C724FB423BFEA5000C48050 /* NewTodoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTodoView.swift; sourceTree = "<group>"; };
+		8C990A8723C1F445001E4C87 /* EditProfileNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileNew.swift; sourceTree = "<group>"; };
+		8C990A8923C1F7D3001E4C87 /* CustomTextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFieldStyle.swift; sourceTree = "<group>"; };
+		8C990A8B23C1FB35001E4C87 /* ProfileTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTitleView.swift; sourceTree = "<group>"; };
 		8CBBCF2A23BF2A1700D56452 /* SwiftUICandyTodo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUICandyTodo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CBBCF2D23BF2A1700D56452 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8CBBCF2F23BF2A1700D56452 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -80,9 +86,11 @@
 			children = (
 				8C724F9323BF363F00C48050 /* CommonViews.swift */,
 				8C724F9823BF6E8900C48050 /* TitleView.swift */,
+				8C990A8B23C1FB35001E4C87 /* ProfileTitleView.swift */,
 				8C724F9A23BF6F3300C48050 /* TodosListView.swift */,
 				8C724F9C23BF708500C48050 /* TodoListViewRow.swift */,
 				8C724FAB23BFA2A500C48050 /* NotificationListViewRow.swift */,
+				8C990A8923C1F7D3001E4C87 /* CustomTextFieldStyle.swift */,
 			);
 			path = CommonViews;
 			sourceTree = "<group>";
@@ -125,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				8C724FB023BFABBD00C48050 /* ProfileView.swift */,
+				8C990A8723C1F445001E4C87 /* EditProfileNew.swift */,
 			);
 			path = ProfileView;
 			sourceTree = "<group>";
@@ -263,11 +272,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C990A8C23C1FB35001E4C87 /* ProfileTitleView.swift in Sources */,
 				8CBBCF2E23BF2A1700D56452 /* AppDelegate.swift in Sources */,
 				8C724F9423BF363F00C48050 /* CommonViews.swift in Sources */,
 				8CBBCF3023BF2A1700D56452 /* SceneDelegate.swift in Sources */,
 				8C724FB523BFEA5000C48050 /* NewTodoView.swift in Sources */,
 				8C724F9D23BF708500C48050 /* TodoListViewRow.swift in Sources */,
+				8C990A8823C1F445001E4C87 /* EditProfileNew.swift in Sources */,
 				8C724F9123BF329B00C48050 /* TodayListView.swift in Sources */,
 				8CBBCF3523BF2A1700D56452 /* ContentView.swift in Sources */,
 				8C724FA323BF874500C48050 /* UpcomingListView.swift in Sources */,
@@ -276,6 +287,7 @@
 				8C724FB123BFABBD00C48050 /* ProfileView.swift in Sources */,
 				8C724F9723BF436E00C48050 /* TodoModel.swift in Sources */,
 				8C724FAE23BFAB5500C48050 /* UserModel.swift in Sources */,
+				8C990A8A23C1F7D3001E4C87 /* CustomTextFieldStyle.swift in Sources */,
 				8CBBCF3323BF2A1700D56452 /* SwiftUICandyTodo.xcdatamodeld in Sources */,
 				8C724FAA23BFA23A00C48050 /* CandyNotificationModel.swift in Sources */,
 				8C724F9923BF6E8900C48050 /* TitleView.swift in Sources */,

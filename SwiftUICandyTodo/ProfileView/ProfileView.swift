@@ -12,9 +12,10 @@ struct ProfileView: View {
     var user: User = User.example
     @State var sendNotifications = false
     @State var vibrateOnAlert = true
+    @State var showEditProfile = false
     var body: some View {
         VStack {
-            TitleView(title: "PROFILE", user: user)
+            ProfileTitleView(title: "PROFILE", user: user, showEditProfile: $showEditProfile)
             
             List {
                 Section(header: SectionHeader(title: "Notification Settings")) {
@@ -38,6 +39,9 @@ struct ProfileView: View {
                     .padding(.horizontal, 30)
                 }
             }
+            .sheet(isPresented: $showEditProfile, content: {
+                EditProfileNew()
+            })
             
             Spacer()
         }
