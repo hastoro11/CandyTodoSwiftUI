@@ -14,18 +14,21 @@ struct UpcomingListView: View {
         ZStack {
             Color("Pink")
                 .edgesIgnoringSafeArea(.top)
-            VStack {
-                TitleView(title: "SCHEDULER", subtitle: "Upcoming tasks")
-                List {
-                    ForEach(Utils.upcomingTodos(todos), id:\.date) {dailyTodo in
-                        Section(header: SectionHeader(title: dailyTodo.date)) {
-                            ForEach(dailyTodo.todos) {todo in
-                                TodoListViewRow(todo: todo)
+            ZStack {
+                Color.white
+                VStack {
+                    TitleView(title: "SCHEDULER", subtitle: "Upcoming tasks")
+                    List {
+                        ForEach(Utils.upcomingTodos(todos), id:\.date) {dailyTodo in
+                            Section(header: SectionHeader(title: dailyTodo.date)) {
+                                ForEach(dailyTodo.todos) {todo in
+                                    TodoListViewRow(todo: todo)
+                                }
                             }
+                            .background(Color.white)
                         }
-                        .background(Color.white)
                     }
-                }                
+                }
             }
         }
     }

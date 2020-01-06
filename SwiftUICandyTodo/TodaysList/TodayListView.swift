@@ -14,10 +14,14 @@ struct TodayListView: View {
         ZStack {
             Color("Pink")
                 .edgesIgnoringSafeArea(.top)
-            VStack {
-                TitleView(title: "TO-DO", subtitle: "Today's list")
-                TodosListView(todos: todaysTodos())                
+            ZStack {
+                Color.white
+                VStack {
+                    TitleView(title: "TO-DO", subtitle: "Today's list")
+                    TodosListView(todos: todaysTodos())
+                }
             }
+            
         }
     }
     
