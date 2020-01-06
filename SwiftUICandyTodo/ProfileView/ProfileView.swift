@@ -7,15 +7,18 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct ProfileView: View {
-    var user: User = User.example
+    @FetchRequest(entity: User.entity(), sortDescriptors: []) var users: FetchedResults<User>
+    @Environment(\.managedObjectContext) var context
+    
     @State var sendNotifications = false
     @State var vibrateOnAlert = true
     @State var showEditProfile = false
     var body: some View {
         VStack {
-            ProfileTitleView(title: "PROFILE", user: user, showEditProfile: $showEditProfile)
+            ProfileTitleView(title: "PROFILE", user: users.first, showEditProfile: $showEditProfile)
             
             List {
                 Section(header: SectionHeader(title: "Notification Settings")) {
@@ -40,7 +43,8 @@ struct ProfileView: View {
                 }
             }
             .sheet(isPresented: $showEditProfile, content: {
-                EditProfileNew()
+                EditProfileView(user: self.users.first)
+                    .environment(\.managedObjectContext, self.context)
             })
             
             Spacer()
