@@ -24,7 +24,6 @@ struct EditProfileView: View {
             VStack {
                 VStack {
                     titleBar
-                    
                     titleTextField
                 }.foregroundColor(Color("Dark Blue"))
                 
@@ -32,14 +31,10 @@ struct EditProfileView: View {
                     Color.white
                     VStack {
                         form
-                        
                         Spacer()
-                        
                         button
                     }
-                    
                 }
-                
             }
         }
         .onAppear {            
@@ -49,6 +44,11 @@ struct EditProfileView: View {
             SelectPhotoView(uiImage: self.$viewModel.uiImage)
         })
         
+    }
+    
+    func buttonTapped() {
+        self.viewModel.saveUser(context: self.context)
+        self.presentationMode.wrappedValue.dismiss()
     }
 }
 
@@ -117,10 +117,7 @@ extension EditProfileView {
     }
     
     var button: some View {
-        Button(action: {
-            self.viewModel.saveUser(context: self.context)
-            self.presentationMode.wrappedValue.dismiss()
-        }, label: {
+        Button(action: buttonTapped, label: {
             Image(systemName: "checkmark")
                 .font(.title)
                 .foregroundColor(.white)

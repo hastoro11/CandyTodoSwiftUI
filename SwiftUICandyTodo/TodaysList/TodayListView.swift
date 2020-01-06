@@ -11,12 +11,13 @@ import SwiftUI
 struct TodayListView: View {
     var todos = Todo.examples
     var body: some View {
-        VStack {
-            TitleView(title: "TO-DO", subtitle: "Today's list")
-            
-            TodosListView(todos: todaysTodos())
-                .padding(.top, -30)
-            Spacer()
+        ZStack {
+            Color("Pink")
+                .edgesIgnoringSafeArea(.top)
+            VStack {
+                TitleView(title: "TO-DO", subtitle: "Today's list")
+                TodosListView(todos: todaysTodos())                
+            }
         }
     }
     

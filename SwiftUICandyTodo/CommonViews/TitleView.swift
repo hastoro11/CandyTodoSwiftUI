@@ -14,8 +14,8 @@ struct TitleView: View {
     var body: some View {
         ZStack(alignment: .top) {
             Color("Pink")
-                .frame(height: 240)
-                .edgesIgnoringSafeArea(.top)
+                .frame(height: 192)
+//                .edgesIgnoringSafeArea(.top)
             
             VStack {
                 VStack(spacing: 0) {
@@ -44,8 +44,6 @@ struct TitleView: View {
                     .padding(.vertical, 30)
                 }                
                 .padding(.horizontal, 30)
-                
-                
             }
             .foregroundColor(Color("Dark Blue"))
             
