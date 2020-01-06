@@ -6,9 +6,16 @@
 //  Copyright © 2020. Gabor Sornyei. All rights reserved.
 //
 
-import Foundation
+import SwiftUI
 
 class Utils {
+    
+    static func todayPredicate() -> NSPredicate  {
+        let dateFrom = Calendar.current.startOfDay(for: Date())
+        let dateTo = Calendar.current.date(byAdding: .day, value: 1, to: dateFrom)!
+        
+        return NSPredicate(format: "%K BETWEEN {%@, %@}", "due", dateFrom as NSDate, dateTo as NSDate)
+    }
     
     static func notifications(_ notifications: [CandyNotification]) -> [DailyCandyNotification] {
         return notifications.reduce([DailyCandyNotification]()) { (list, notification) in
@@ -44,34 +51,33 @@ class Utils {
         }
         
         return formatter.string(from: dt)
-    }        
-
-    static func upcomingTodos(_ todos: [Todo]) -> [DailyTodo] {
-        let todos = todos.filter({$0.due >= Date()})
+    }
+    
+    static func upcomingTodos(_ todos: FetchedResults<Todo>) -> [Todo.DailyTodo] {
         
-        var dailyTodos = [DailyTodo]()
-
+        var dailyTodos = [Todo.DailyTodo]()
+        
         for todo in todos {
-            let date = dateToString(todo.due)
-            var found = false
-            var foundIndex = -1
-            for index in (0..<dailyTodos.count) {
-                if dailyTodos[index].date == date {
-                    found = true
-                    foundIndex = index
-                    break
-                }
-            }
-            if found {
-                dailyTodos[foundIndex].todos.append(todo)
-            } else {
-                let dailyTodo = DailyTodo(date: date, todos: [todo])
-                dailyTodos.append(dailyTodo)
-            }
-        
-        }
-        
-        return dailyTodos
+                   let date = dateToString(todo.due)
+                   var found = false
+                   var foundIndex = -1
+                   for index in (0..<dailyTodos.count) {
+                       if dailyTodos[index].date == date {
+                           found = true
+                           foundIndex = index
+                           break
+                       }
+                   }
+                   if found {
+                       dailyTodos[foundIndex].todos.append(todo)
+                   } else {
+                    let dailyTodo = Todo.DailyTodo(date: date, todos: [todo])
+                       dailyTodos.append(dailyTodo)
+                   }
+               
+               }
+               
+               return dailyTodos
     }
     
     private static func dayFromDate(_ dt: Date) -> Date {

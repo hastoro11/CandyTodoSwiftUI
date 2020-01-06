@@ -8,17 +8,17 @@
 
 import SwiftUI
 
-struct TodosListView: View {
-    var todos: [Todo]
+struct TodosListView: View {    
+    var todos: FetchedResults<Todo>
     var body: some View {
         List{
-            ForEach(todos) { todo in
+            ForEach(todos, id:\.self) { todo in
                 TodoListViewRow(todo: todo)
             }
         }
     }
     
-    init(todos: [Todo]) {
+    init(todos: FetchedResults<Todo>) {
         self.todos = todos
         // To remove only extra separators below the list:
         UITableView.appearance().tableFooterView = UIView()
@@ -28,8 +28,8 @@ struct TodosListView: View {
     }
 }
 
-struct TodosListView_Previews: PreviewProvider {
-    static var previews: some View {
-        TodosListView(todos: Todo.examples).previewLayout(.sizeThatFits)
-    }
-}
+//struct TodosListView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        TodosListView(todos: TestTodo.examples).previewLayout(.sizeThatFits)
+//    }
+//}

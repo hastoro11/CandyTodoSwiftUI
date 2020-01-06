@@ -27,8 +27,8 @@ struct TodoListViewRow: View {
     }
 }
 
-struct TodoListViewRow_Previews: PreviewProvider {
-    static var previews: some View {
-        TodoListViewRow(todo: Todo.examples[0]).previewLayout(.sizeThatFits)
-    }
-}
+//struct TodoListViewRow_Previews: PreviewProvider {
+//    static var previews: some View {
+//        TodoListViewRow(todo: TestTodo.examples[0]).previewLayout(.sizeThatFits)
+//    }
+//}

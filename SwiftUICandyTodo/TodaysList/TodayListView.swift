@@ -9,7 +9,8 @@
 import SwiftUI
 
 struct TodayListView: View {
-    var todos = Todo.examples
+    @FetchRequest(entity: Todo.entity(), sortDescriptors: [NSSortDescriptor(key: "due", ascending: true)], predicate: Utils.todayPredicate()) var todos: FetchedResults<Todo>
+
     var body: some View {
         ZStack {
             Color("Pink")
@@ -18,15 +19,11 @@ struct TodayListView: View {
                 Color.white
                 VStack {
                     TitleView(title: "TO-DO", subtitle: "Today's list")
-                    TodosListView(todos: todaysTodos())
+                    TodosListView(todos: todos)
                 }
             }
             
         }
-    }
-    
-    func todaysTodos() -> [Todo] {
-        return todos.filter({Calendar.current.isDateInToday($0.due)})      
     }
 }
 

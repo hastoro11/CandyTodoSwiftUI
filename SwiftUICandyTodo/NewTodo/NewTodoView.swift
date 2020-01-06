@@ -10,9 +10,9 @@ import SwiftUI
 
 struct NewTodoView: View {
     @Environment(\.presentationMode) var presentationMode
-    @State var title = ""
-    @State var due: Date = Date()
-    @State var priority = 0
+    @Environment(\.managedObjectContext) var context
+    @ObservedObject var viewModel = NewTodoViewModel()
+    
     @State var notifyAbout = false
     @State var insertIntoCalendaer = true
     var body: some View {
@@ -41,7 +41,8 @@ struct NewTodoView: View {
     }
 
     func buttonTapped() {
-        self.presentationMode.wrappedValue.dismiss()
+        viewModel.saveTodo(context: context)
+        presentationMode.wrappedValue.dismiss()
     }
     
     init() {
@@ -68,7 +69,7 @@ extension NewTodoView {
     var titleTextField: some View {
         HStack(spacing: 20) {
             VStack(alignment: .leading) {
-                TextField("Write here...", text: $title)
+                TextField("Write here...", text: $viewModel.title)
                     .font(.custom("Avenir-Black", size: 32))
             }
             .padding(.vertical, 30)
@@ -79,7 +80,7 @@ extension NewTodoView {
     var form: some View {
         Form {
             Section {
-                DatePicker(selection: $due, displayedComponents: [.date, .hourAndMinute], label: {
+                DatePicker(selection: $viewModel.due, displayedComponents: [.date, .hourAndMinute], label: {
                     Text("Complete by:")
                         .padding(.horizontal, 30)
                 })
@@ -89,7 +90,7 @@ extension NewTodoView {
             Section {
                 Text("Priority")
                     .padding(.horizontal, 30)
-                Picker(selection: $priority, label: Text("Priority"), content: {
+                Picker(selection: $viewModel.priority, label: Text("Priority"), content: {
                     Text("High").tag(0)
                     Text("Normal").tag(1)
                     Text("Low").tag(2)
