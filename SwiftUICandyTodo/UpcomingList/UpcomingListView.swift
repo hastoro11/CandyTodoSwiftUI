@@ -11,21 +11,22 @@ import SwiftUI
 struct UpcomingListView: View {
     var todos = Todo.examples
     var body: some View {
-        VStack {
-            TitleView(title: "SCHEDULER", subtitle: "Upcoming tasks")
-            List {
-                ForEach(Utils.upcomingTodos(todos), id:\.date) {dailyTodo in
-                    Section(header: SectionHeader(title: dailyTodo.date)) {
-                        ForEach(dailyTodo.todos) {todo in
-                            TodoListViewRow(todo: todo)
+        ZStack {
+            Color("Pink")
+                .edgesIgnoringSafeArea(.top)
+            VStack {
+                TitleView(title: "SCHEDULER", subtitle: "Upcoming tasks")
+                List {
+                    ForEach(Utils.upcomingTodos(todos), id:\.date) {dailyTodo in
+                        Section(header: SectionHeader(title: dailyTodo.date)) {
+                            ForEach(dailyTodo.todos) {todo in
+                                TodoListViewRow(todo: todo)
+                            }
                         }
+                        .background(Color.white)
                     }
-                    .background(Color.white)
-                }
+                }                
             }
-            .padding(.top, -30)
-            
-            Spacer()
         }
     }
     
