@@ -29,6 +29,11 @@ struct TestTodo: Identifiable {
             TestTodo(title: "Go to Amber Park", completed: false, due: Date(timeIntervalSince1970: 1578402000)) // 01.07
         ]
     }
+    
+    struct DailyTodo {
+        var date: String
+        var todos: [Todo]
+    }
 }
 
 

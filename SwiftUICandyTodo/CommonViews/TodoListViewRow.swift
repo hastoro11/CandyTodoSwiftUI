@@ -36,7 +36,7 @@ struct TodoListViewRow: View {
                 Text("Completed")
             })
             Button(action: {
-                self.context.delete(self.todo)
+                self.context.delete(self.todo)                
                 try? self.context.save()
             }, label: {
                 Image(systemName: "trash")

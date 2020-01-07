@@ -11,10 +11,11 @@ import SwiftUI
 struct ContentView: View {
     @Environment(\.managedObjectContext) var context
     @State var showNewTodoView = false
+    var localNotificationManager = LocalNotificationManager()
     var body: some View {
         ZStack {
             TabView {
-                TodayListView()
+                TodayListView()                
                     .tabItem({
                         Image(systemName: "list.bullet")
                             .font(.system(size: 24))

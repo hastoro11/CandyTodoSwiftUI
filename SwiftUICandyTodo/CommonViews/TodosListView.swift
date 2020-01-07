@@ -10,6 +10,7 @@ import SwiftUI
 
 struct TodosListView: View {
     @Environment(\.managedObjectContext) var context
+    @EnvironmentObject var localNotificationManager: LocalNotificationManager
     var todos: FetchedResults<Todo>
     var body: some View {
         List{
@@ -20,6 +21,7 @@ struct TodosListView: View {
                 for index in indexSet {
                     let todo = self.todos[index]
                     self.context.delete(todo)
+                    self.localNotificationManager.deleteNotification(title: todo.title, due: todo.due)
                     try? self.context.save()
                 }
             }
