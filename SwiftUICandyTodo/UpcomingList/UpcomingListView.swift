@@ -9,7 +9,8 @@
 import SwiftUI
 
 struct UpcomingListView: View {
-    var todos = Todo.examples
+    @FetchRequest(entity: Todo.entity(), sortDescriptors: [NSSortDescriptor(key: "due", ascending: true)], predicate: Utils.upcomingPredicate()) var todos: FetchedResults<Todo>
+    
     var body: some View {
         ZStack {
             Color("Pink")
@@ -21,7 +22,7 @@ struct UpcomingListView: View {
                     List {
                         ForEach(Utils.upcomingTodos(todos), id:\.date) {dailyTodo in
                             Section(header: SectionHeader(title: dailyTodo.date)) {
-                                ForEach(dailyTodo.todos) {todo in
+                                ForEach(dailyTodo.todos, id:\.self) {todo in
                                     TodoListViewRow(todo: todo)
                                 }
                             }

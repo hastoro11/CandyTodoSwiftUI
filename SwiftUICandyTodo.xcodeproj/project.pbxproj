@@ -34,6 +34,10 @@
 		8CBBCF3723BF2A1800D56452 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CBBCF3623BF2A1800D56452 /* Assets.xcassets */; };
 		8CBBCF3A23BF2A1800D56452 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CBBCF3923BF2A1800D56452 /* Preview Assets.xcassets */; };
 		8CBBCF3D23BF2A1800D56452 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CBBCF3B23BF2A1800D56452 /* LaunchScreen.storyboard */; };
+		8CCAA43D23C35C1400AAEEE8 /* NewTodoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCAA43C23C35C1400AAEEE8 /* NewTodoViewModel.swift */; };
+		8CCAA43F23C35C5700AAEEE8 /* Priority.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCAA43E23C35C5700AAEEE8 /* Priority.swift */; };
+		8CCAA44A23C38A7E00AAEEE8 /* Todo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCAA44823C38A7E00AAEEE8 /* Todo+CoreDataClass.swift */; };
+		8CCAA44B23C38A7E00AAEEE8 /* Todo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCAA44923C38A7E00AAEEE8 /* Todo+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +70,10 @@
 		8CBBCF3923BF2A1800D56452 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8CBBCF3C23BF2A1800D56452 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8CBBCF3E23BF2A1800D56452 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8CCAA43C23C35C1400AAEEE8 /* NewTodoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTodoViewModel.swift; sourceTree = "<group>"; };
+		8CCAA43E23C35C5700AAEEE8 /* Priority.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Priority.swift; sourceTree = "<group>"; };
+		8CCAA44823C38A7E00AAEEE8 /* Todo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Todo+CoreDataClass.swift"; sourceTree = "<group>"; };
+		8CCAA44923C38A7E00AAEEE8 /* Todo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Todo+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,10 +111,13 @@
 		8C724F9523BF435D00C48050 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8CCAA44823C38A7E00AAEEE8 /* Todo+CoreDataClass.swift */,
+				8CCAA44923C38A7E00AAEEE8 /* Todo+CoreDataProperties.swift */,
 				8C990A9923C310F6001E4C87 /* User+CoreDataClass.swift */,
 				8C990A9A23C310F6001E4C87 /* User+CoreDataProperties.swift */,
 				8C724F9623BF436E00C48050 /* TodoModel.swift */,
 				8C724FA923BFA23A00C48050 /* CandyNotificationModel.swift */,
+				8CCAA43E23C35C5700AAEEE8 /* Priority.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -162,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				8C724FB423BFEA5000C48050 /* NewTodoView.swift */,
+				8CCAA43C23C35C1400AAEEE8 /* NewTodoViewModel.swift */,
 			);
 			path = NewTodo;
 			sourceTree = "<group>";
@@ -286,6 +298,7 @@
 				8C990A9C23C310F6001E4C87 /* User+CoreDataProperties.swift in Sources */,
 				8C724F9423BF363F00C48050 /* CommonViews.swift in Sources */,
 				8CBBCF3023BF2A1700D56452 /* SceneDelegate.swift in Sources */,
+				8CCAA43D23C35C1400AAEEE8 /* NewTodoViewModel.swift in Sources */,
 				8C724FB523BFEA5000C48050 /* NewTodoView.swift in Sources */,
 				8C724F9D23BF708500C48050 /* TodoListViewRow.swift in Sources */,
 				8C990A9B23C310F6001E4C87 /* User+CoreDataClass.swift in Sources */,
@@ -294,14 +307,17 @@
 				8CBBCF3523BF2A1700D56452 /* ContentView.swift in Sources */,
 				8C990A8E23C20B9F001E4C87 /* SelectPhotoView.swift in Sources */,
 				8C724FA323BF874500C48050 /* UpcomingListView.swift in Sources */,
+				8CCAA44A23C38A7E00AAEEE8 /* Todo+CoreDataClass.swift in Sources */,
 				8C990A9023C22E3D001E4C87 /* EditProfileViewModel.swift in Sources */,
 				8C724F9B23BF6F3300C48050 /* TodosListView.swift in Sources */,
+				8CCAA44B23C38A7E00AAEEE8 /* Todo+CoreDataProperties.swift in Sources */,
 				8C724FA023BF860900C48050 /* Utils.swift in Sources */,
 				8C724FB123BFABBD00C48050 /* ProfileView.swift in Sources */,
 				8C724F9723BF436E00C48050 /* TodoModel.swift in Sources */,
 				8C990A8A23C1F7D3001E4C87 /* CustomTextFieldStyle.swift in Sources */,
 				8CBBCF3323BF2A1700D56452 /* SwiftUICandyTodo.xcdatamodeld in Sources */,
 				8C724FAA23BFA23A00C48050 /* CandyNotificationModel.swift in Sources */,
+				8CCAA43F23C35C5700AAEEE8 /* Priority.swift in Sources */,
 				8C724F9923BF6E8900C48050 /* TitleView.swift in Sources */,
 				8C724FAC23BFA2A500C48050 /* NotificationListViewRow.swift in Sources */,
 				8C724FA823BFA1E000C48050 /* NotificationsView.swift in Sources */,

@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @Environment(\.managedObjectContext) var context
     @State var showNewTodoView = false
     var body: some View {
         ZStack {
@@ -67,7 +68,7 @@ struct ContentView: View {
             }
         }
         .sheet(isPresented: $showNewTodoView, content: {
-            NewTodoView()
+            NewTodoView().environment(\.managedObjectContext, self.context)
         })
     }
     
