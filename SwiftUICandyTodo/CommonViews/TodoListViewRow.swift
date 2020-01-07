@@ -9,7 +9,9 @@
 import SwiftUI
 
 struct TodoListViewRow: View {
+    @Environment(\.managedObjectContext) var context
     var todo: Todo
+    @State var refresh = false
     var body: some View {
         HStack(spacing: 30) {
             if todo.completed {
@@ -17,14 +19,34 @@ struct TodoListViewRow: View {
             } else {
                 UncheckedView()
             }
-            Text(todo.title)
+            Text(todo.title + (refresh ? "" : ""))
                 .font(.custom("Avenir-Book", size: 16))
                 .foregroundColor(todo.completed ? Color("Light Blue") : Color("Dark Blue"))
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(.horizontal, 30)
         .padding(.vertical, 10)
+        .contextMenu(menuItems: {
+            Button(action: {
+                self.todo.completed.toggle()
+                try? self.context.save()
+                self.refresh.toggle()
+            }, label: {
+                Image(systemName: "checkmark.circle")
+                Text("Completed")
+            })
+            Button(action: {
+                self.context.delete(self.todo)
+                try? self.context.save()
+            }, label: {
+                Image(systemName: "trash")
+                Text("Delete")
+            })
+        })
+        
     }
+    
+    
 }
 
 //struct TodoListViewRow_Previews: PreviewProvider {

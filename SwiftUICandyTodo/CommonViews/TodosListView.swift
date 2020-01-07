@@ -8,12 +8,20 @@
 
 import SwiftUI
 
-struct TodosListView: View {    
+struct TodosListView: View {
+    @Environment(\.managedObjectContext) var context
     var todos: FetchedResults<Todo>
     var body: some View {
         List{
             ForEach(todos, id:\.self) { todo in
                 TodoListViewRow(todo: todo)
+            }
+            .onDelete { indexSet in
+                for index in indexSet {
+                    let todo = self.todos[index]
+                    self.context.delete(todo)
+                    try? self.context.save()
+                }
             }
         }
     }

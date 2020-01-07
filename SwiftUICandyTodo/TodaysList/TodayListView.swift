@@ -9,14 +9,21 @@
 import SwiftUI
 
 struct TodayListView: View {
+    @Environment(\.managedObjectContext) var context
     @FetchRequest(entity: Todo.entity(), sortDescriptors: [NSSortDescriptor(key: "due", ascending: true)], predicate: Utils.todayPredicate()) var todos: FetchedResults<Todo>
-
+    @State var refresh = false {
+        didSet {
+            print(refresh)
+        }
+    }
     var body: some View {
         ZStack {
             Color("Pink")
                 .edgesIgnoringSafeArea(.top)
             ZStack {
+                
                 Color.white
+                
                 VStack {
                     TitleView(title: "TO-DO", subtitle: "Today's list")
                     TodosListView(todos: todos)
@@ -24,6 +31,12 @@ struct TodayListView: View {
             }
             
         }
+    }
+    
+    func complete(_ todo: Todo) {
+        todo.completed.toggle()
+        try? context.save()        
+        self.refresh.toggle()
     }
 }
 

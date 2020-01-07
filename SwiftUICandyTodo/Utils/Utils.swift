@@ -17,6 +17,13 @@ class Utils {
         return NSPredicate(format: "%K BETWEEN {%@, %@}", "due", dateFrom as NSDate, dateTo as NSDate)
     }
     
+    static func upcomingPredicate() -> NSPredicate  {
+        let dateFrom = Calendar.current.startOfDay(for: Date())
+        let dateTo = Calendar.current.date(byAdding: .day, value: 1, to: dateFrom)!
+        
+        return NSPredicate(format: "%K > %@", "due", dateTo as NSDate)
+    }
+    
     static func notifications(_ notifications: [CandyNotification]) -> [DailyCandyNotification] {
         return notifications.reduce([DailyCandyNotification]()) { (list, notification) in
             var found = false

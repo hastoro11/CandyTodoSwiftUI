@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct UpcomingListView: View {
-    @FetchRequest(entity: Todo.entity(), sortDescriptors: [NSSortDescriptor(key: "due", ascending: true)], predicate: NSPredicate(format: "due >= %@", Date() as NSDate)) var todos: FetchedResults<Todo>
+    @FetchRequest(entity: Todo.entity(), sortDescriptors: [NSSortDescriptor(key: "due", ascending: true)], predicate: Utils.upcomingPredicate()) var todos: FetchedResults<Todo>
     
     var body: some View {
         ZStack {
