@@ -25,6 +25,7 @@ class NewTodoViewModel: ObservableObject {
     
     func saveTodo(context: NSManagedObjectContext) {
         let newTodo = Todo(context: context)
+        newTodo.id = UUID()
         newTodo.title = self.title
         newTodo.due = self.due
         newTodo.completed = false
@@ -32,7 +33,7 @@ class NewTodoViewModel: ObservableObject {
         newTodo.priority = Int16(self.priority)
         
         if getNotified {
-            let notification = LocalNotificationManager.Notification(title: self.title, due: self.due)
+            let notification = LocalNotificationManager.Notification(id: newTodo.id.uuidString, title: self.title, due: self.due)
             localNotificationmanager.addNotification(notification)
         }
         

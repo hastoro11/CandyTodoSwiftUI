@@ -12,12 +12,23 @@ import CoreData
 struct ProfileView: View {
     @FetchRequest(entity: User.entity(), sortDescriptors: []) var users: FetchedResults<User>
     @Environment(\.managedObjectContext) var context
+    @EnvironmentObject var localNotificationManager: LocalNotificationManager
     
     @State var sendNotifications = false
     @State var vibrateOnAlert = true
     @State var showEditProfile = false
     var body: some View {
-        VStack {
+        let sendNotifications = Binding<Bool>(get: {
+            return self.sendNotifications
+        }, set: {
+            self.sendNotifications = $0
+            if $0 {
+                self.localNotificationManager.checkAuthorization()
+            } else {
+                self.localNotificationManager.cancelNotifications()
+            }
+        })
+        return VStack {
             ProfileTitleView(title: "PROFILE", user: users.first, showEditProfile: $showEditProfile)
             
             List {
@@ -26,7 +37,7 @@ struct ProfileView: View {
                         Text("Send notifications")
                             .foregroundColor(Color("Dark Blue"))
                             .font(.custom("Avenir-Book", size: 16))
-                        Toggle(isOn: $sendNotifications, label: {
+                        Toggle(isOn: sendNotifications, label: {
                             Text("")
                         })
                     }

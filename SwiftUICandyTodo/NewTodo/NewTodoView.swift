@@ -127,11 +127,13 @@ extension NewTodoView {
                 .font(.title)
                 .foregroundColor(.white)
                 .padding(24)
-                .background(Color("Dark Blue"))
+                .background(viewModel.isButtonDisabled ? Color("Light Blue") : Color("Dark Blue"))
                 .clipShape(Circle())
         })
             .padding(.bottom, 10)
             .shadow(radius: 10, x: 0, y: 10)
+            .disabled(viewModel.isButtonDisabled)
+            
     }
 }
 

@@ -10,6 +10,8 @@ import SwiftUI
 
 struct NotificationsView: View {
     var notifications = CandyNotification.examples
+    @EnvironmentObject var localNotificationManager: LocalNotificationManager
+    @State var sectionedNotifications: [LocalNotificationManager.SectionedNotification] = []
     var body: some View {
         ZStack {
             Color("Pink")
@@ -19,11 +21,19 @@ struct NotificationsView: View {
                 VStack {
                     TitleView(title: "NOTIFICATIONS", subtitle: "Alert and updates")
                     List {
-                        ForEach(Utils.notifications(notifications), id:\.date) { dailyNotification in
+                        ForEach(sectionedNotifications, id:\.date) { dailyNotification in
                             
                             Section(header: SectionHeader(title: dailyNotification.date)) {
-                                ForEach(dailyNotification.notifications) {notification in
-                                    NotificationListViewRow(notification: notification)
+                                ForEach(dailyNotification.notifications, id:\.self) {notification in
+                                    HStack(spacing: 30) {
+                                        InfoView()
+                                        Text(notification)
+                                            .font(.custom("Avenir-Book", size: 16))
+                                            .foregroundColor(Color("Dark Blue"))
+                                    }
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    .padding(.horizontal, 30)
+                                    .padding(.vertical, 10)
                                 }
                             }
                         }
@@ -31,6 +41,11 @@ struct NotificationsView: View {
                     
                 }
             }
+        }
+        .onAppear {
+            self.localNotificationManager.listDeliverNotifications(completion: { notifications in
+                self.sectionedNotifications = notifications
+            })
         }
     }
 }

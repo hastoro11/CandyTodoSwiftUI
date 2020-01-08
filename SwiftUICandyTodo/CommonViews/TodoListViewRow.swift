@@ -10,6 +10,7 @@ import SwiftUI
 
 struct TodoListViewRow: View {
     @Environment(\.managedObjectContext) var context
+    @EnvironmentObject var localNotificationManager: LocalNotificationManager
     var todo: Todo
     @State var refresh = false
     var body: some View {
@@ -30,6 +31,7 @@ struct TodoListViewRow: View {
             Button(action: {
                 self.todo.completed.toggle()
                 try? self.context.save()
+                self.localNotificationManager.removeCompletedNotification(id: self.todo.id.uuidString)
                 self.refresh.toggle()
             }, label: {
                 Image(systemName: "checkmark.circle")

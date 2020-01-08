@@ -10,8 +10,9 @@ import SwiftUI
 
 struct ContentView: View {
     @Environment(\.managedObjectContext) var context
+    @EnvironmentObject var localNotificationManager: LocalNotificationManager
     @State var showNewTodoView = false
-    var localNotificationManager = LocalNotificationManager()
+    
     var body: some View {
         ZStack {
             TabView {

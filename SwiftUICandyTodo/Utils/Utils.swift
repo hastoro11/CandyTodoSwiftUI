@@ -55,6 +55,8 @@ class Utils {
             return "Today"
         } else if Calendar.current.isDateInTomorrow(dt) {
             return "Tomorrow"
+        } else if Calendar.current.isDateInYesterday(dt) {
+            return "Yesterday"
         }
         
         return formatter.string(from: dt)
