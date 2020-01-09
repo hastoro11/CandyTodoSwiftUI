@@ -12,8 +12,7 @@ struct NewTodoView: View {
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.managedObjectContext) var context
     @ObservedObject var viewModel = NewTodoViewModel()
-    
-    @State var notifyAbout = false
+        
     @State var insertIntoCalendaer = true
     var body: some View {
         ZStack(alignment: .top) {
@@ -103,7 +102,7 @@ extension NewTodoView {
                     Text("Notify about this")
                         .foregroundColor(Color("Dark Blue"))
                         .font(.custom("Avenir-Book", size: 16))
-                    Toggle(isOn: $notifyAbout, label: {
+                    Toggle(isOn: $viewModel.getNotified, label: {
                         Text("")
                     })
                 } .padding(.horizontal, 30)
@@ -128,11 +127,13 @@ extension NewTodoView {
                 .font(.title)
                 .foregroundColor(.white)
                 .padding(24)
-                .background(Color("Dark Blue"))
+                .background(viewModel.isButtonDisabled ? Color("Light Blue") : Color("Dark Blue"))
                 .clipShape(Circle())
         })
             .padding(.bottom, 10)
             .shadow(radius: 10, x: 0, y: 10)
+            .disabled(viewModel.isButtonDisabled)
+            
     }
 }
 
