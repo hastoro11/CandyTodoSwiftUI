@@ -6,8 +6,9 @@
 //  Copyright © 2020. Gabor Sornyei. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import UserNotifications
+
 
 private let key = "LocalNotofications"
 
@@ -76,6 +77,7 @@ class LocalNotificationManager: ObservableObject {
         content.title = "Reminder"
         content.subtitle = notification.title
         content.sound = UNNotificationSound.default
+        content.badge = UIApplication.shared.applicationIconBadgeNumber + 1 as NSNumber
         
         let calendar = Calendar.current
         let date = calendar.date(byAdding: .minute, value: -30, to: notification.due) ?? notification.due

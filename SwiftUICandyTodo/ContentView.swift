@@ -68,7 +68,7 @@ struct ContentView: View {
                     .padding(.bottom, 10)
                     .shadow(radius: 10, x: 0, y: 10)
             }
-        }
+        }        
         .sheet(isPresented: $showNewTodoView, content: {
             NewTodoView().environment(\.managedObjectContext, self.context)
         })
