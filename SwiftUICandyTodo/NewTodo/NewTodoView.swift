@@ -10,7 +10,9 @@ import SwiftUI
 
 struct NewTodoView: View {
     @Environment(\.presentationMode) var presentationMode
-    @Environment(\.managedObjectContext) var context
+    @EnvironmentObject var todoManager: TodoManager
+    @EnvironmentObject var localNotificationManager: LocalNotificationManager
+    
     @ObservedObject var viewModel = NewTodoViewModel()
         
     @State var insertIntoCalendaer = true
@@ -40,7 +42,7 @@ struct NewTodoView: View {
     }
 
     func buttonTapped() {
-        viewModel.saveTodo(context: context)
+        viewModel.saveTodo(todoManager: todoManager, localNotificationManager: localNotificationManager)
         presentationMode.wrappedValue.dismiss()
     }
     

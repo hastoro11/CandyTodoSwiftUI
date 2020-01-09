@@ -11,7 +11,7 @@ import SwiftUI
 struct TodosListView: View {
     @Environment(\.managedObjectContext) var context
     @EnvironmentObject var localNotificationManager: LocalNotificationManager
-    var todos: FetchedResults<Todo>
+    var todos: [Todo] = []
     var body: some View {
         List{
             ForEach(todos, id:\.self) { todo in
@@ -28,8 +28,7 @@ struct TodosListView: View {
         }
     }
     
-    init(todos: FetchedResults<Todo>) {
-        self.todos = todos
+    init() {
         // To remove only extra separators below the list:
         UITableView.appearance().tableFooterView = UIView()
         

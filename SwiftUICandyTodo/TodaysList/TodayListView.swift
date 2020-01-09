@@ -10,12 +10,8 @@ import SwiftUI
 
 struct TodayListView: View {
     @Environment(\.managedObjectContext) var context
-    @FetchRequest(entity: Todo.entity(), sortDescriptors: [NSSortDescriptor(key: "due", ascending: true)], predicate: Utils.todayPredicate()) var todos: FetchedResults<Todo>
-    @State var refresh = false {
-        didSet {
-            print(refresh)
-        }
-    }
+    @EnvironmentObject var todoManager: TodoManager
+    
     var body: some View {
         ZStack {
             Color("Pink")
@@ -26,22 +22,18 @@ struct TodayListView: View {
                 
                 VStack {
                     TitleView(title: "TO-DO", subtitle: "Today's list")
-                    TodosListView(todos: todos)
+                    List{
+                        ForEach(todoManager.todos, id:\.id) { todo in
+                            TodoListViewRow(todo: todo)
+                        }                        
+                    }
                 }
             }
             
+        }.onAppear {
+            self.todoManager.todaysTodos()
+            UITableView.appearance().tableFooterView = UIView()
+            UITableView.appearance().separatorStyle = .none
         }
-    }
-    
-    func complete(_ todo: Todo) {
-        todo.completed.toggle()
-        try? context.save()        
-        self.refresh.toggle()
-    }
-}
-
-struct TodayListView_Previews: PreviewProvider {
-    static var previews: some View {
-        TodayListView()
     }
 }
