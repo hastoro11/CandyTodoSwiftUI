@@ -21,7 +21,7 @@ struct TodosListView: View {
                 for index in indexSet {
                     let todo = self.todos[index]
                     self.context.delete(todo)
-                    self.localNotificationManager.removeNotification(id: todo.id.uuidString)
+                    self.localNotificationManager.removeNotification(id: todo.id.uuidString, context: self.context)
                     try? self.context.save()
                 }
             }

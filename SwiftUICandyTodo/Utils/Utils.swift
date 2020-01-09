@@ -24,29 +24,6 @@ class Utils {
         return NSPredicate(format: "%K > %@", "due", dateTo as NSDate)
     }
     
-    static func notifications(_ notifications: [CandyNotification]) -> [DailyCandyNotification] {
-        return notifications.reduce([DailyCandyNotification]()) { (list, notification) in
-            var found = false
-            var foundIndex = -1
-            var list = list
-            for index in (0..<list.count) {
-                if list[index].date == notification.date {
-                    found = true
-                    foundIndex = index
-                    break
-                }
-            }
-            if found {
-                list[foundIndex].notifications.append(notification)
-            } else {
-                list.append(DailyCandyNotification(date: notification.date, notifications: [notification]))
-            }
-            
-            return list
-        }
-
-    }
-    
     static func dateToString(_ dt: Date) -> String {
         let formatter = DateFormatter()
         formatter.dateStyle = .medium        

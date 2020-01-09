@@ -9,9 +9,10 @@
 import SwiftUI
 
 struct NotificationsView: View {
-    var notifications = CandyNotification.examples
+    @Environment(\.managedObjectContext) var context
+    @FetchRequest(entity: Notification.entity(), sortDescriptors: [NSSortDescriptor(key: "due", ascending: true)]) var notifications: FetchedResults<Notification>
     @EnvironmentObject var localNotificationManager: LocalNotificationManager
-    @State var sectionedNotifications: [LocalNotificationManager.SectionedNotification] = []
+    @State var refresh = false
     var body: some View {
         ZStack {
             Color("Pink")
@@ -19,15 +20,15 @@ struct NotificationsView: View {
             ZStack {
                 Color.white
                 VStack {
-                    TitleView(title: "NOTIFICATIONS", subtitle: "Alert and updates")
+                    TitleView(title: "NOTIFICATIONS", subtitle: "Received alerts" + (refresh ? "" : ""))
                     List {
-                        ForEach(sectionedNotifications, id:\.date) { dailyNotification in
+                        ForEach(LocalNotificationManager.listNotifications(notifications: notifications), id:\.date) { dailyNotification in
                             
                             Section(header: SectionHeader(title: dailyNotification.date)) {
                                 ForEach(dailyNotification.notifications, id:\.self) {notification in
                                     HStack(spacing: 30) {
                                         InfoView()
-                                        Text(notification)
+                                        Text("\(notification.title) : \(notification.subtitle)")
                                             .font(.custom("Avenir-Book", size: 16))
                                             .foregroundColor(Color("Dark Blue"))
                                     }
@@ -41,11 +42,8 @@ struct NotificationsView: View {
                     
                 }
             }
-        }
-        .onAppear {
-            self.localNotificationManager.listDeliverNotifications(completion: { notifications in
-                self.sectionedNotifications = notifications
-            })
+        }.onAppear {
+            self.refresh.toggle()
         }
     }
 }

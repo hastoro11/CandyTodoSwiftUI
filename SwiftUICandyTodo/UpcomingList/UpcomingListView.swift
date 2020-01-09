@@ -19,6 +19,7 @@ struct UpcomingListView: View {
                 Color.white
                 VStack {
                     TitleView(title: "SCHEDULER", subtitle: "Upcoming tasks")
+                    
                     List {
                         ForEach(Utils.upcomingTodos(todos), id:\.date) {dailyTodo in
                             Section(header: SectionHeader(title: dailyTodo.date)) {

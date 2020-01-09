@@ -33,7 +33,11 @@ class NewTodoViewModel: ObservableObject {
         newTodo.priority = Int16(self.priority)
         
         if getNotified {
-            let notification = LocalNotificationManager.Notification(id: newTodo.id.uuidString, title: self.title, due: self.due)
+            let notification = Notification(context: context)
+            notification.id = newTodo.id.uuidString
+            notification.title = "Reminder"
+            notification.subtitle = newTodo.title
+            notification.due = newTodo.due
             localNotificationmanager.addNotification(notification)
         }
         

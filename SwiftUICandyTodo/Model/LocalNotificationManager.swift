@@ -8,22 +8,15 @@
 
 import UIKit
 import UserNotifications
-
-
-private let key = "LocalNotofications"
+import CoreData
+import SwiftUI
 
 class LocalNotificationManager: ObservableObject {
     
     //MARK: - properties
-    struct Notification: Codable {
-        var id: String
-        var title: String
-        var due: Date
-    }
-    
     struct SectionedNotification {
         var date: String
-        var notifications: [String]
+        var notifications: [Notification]
     }
 
     //MARK: - init
@@ -74,14 +67,14 @@ class LocalNotificationManager: ObservableObject {
     
     private func scheduleNotification(_ notification: Notification) {
         let content = UNMutableNotificationContent()
-        content.title = "Reminder"
-        content.subtitle = notification.title
+        content.title = notification.title
+        content.subtitle = notification.subtitle
         content.sound = UNNotificationSound.default
         content.badge = UIApplication.shared.applicationIconBadgeNumber + 1 as NSNumber
         
         let calendar = Calendar.current
-        let date = calendar.date(byAdding: .minute, value: -30, to: notification.due) ?? notification.due
-        let year = calendar.component(.year, from: date)
+        let date = calendar.date(byAdding: .minute, value: 0, to: notification.due) ?? notification.due
+        let year = calendar.component(.year, from: date) as Int
         let month = calendar.component(.month, from: date)
         let day = calendar.component(.day, from: date)
         let hour = calendar.component(.hour, from: date)
@@ -89,47 +82,56 @@ class LocalNotificationManager: ObservableObject {
         
         let components = DateComponents(year: year, month: month, day: day, hour: hour, minute: minute)
         
-        
         let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: false)
         
-        let request = UNNotificationRequest(identifier: notification.id, content: content, trigger: trigger)
-        
+        let request = UNNotificationRequest(identifier: notification.id, content: content, trigger: trigger)        
         UNUserNotificationCenter.current().add(request) { (error) in
-            print("Added notification")
             if let error = error {
-                print("Error adding notification:", error.localizedDescription)
+                print("Error adding notificarion:", error)
+            } else {
+                print("Notification added")
             }
         }
     }
     
-    func removeNotification(id: String) {
+    func removeNotification(id: String, context: NSManagedObjectContext) {
         UNUserNotificationCenter.current().removeDeliveredNotifications(withIdentifiers: [id])
         UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [id])
+        
+        let request: NSFetchRequest<Notification> = NSFetchRequest(entityName: "Notification")
+        request.predicate = NSPredicate(format: "id == %@", id)
+            
+        do {
+            let notifications = try context.fetch(request)
+            context.delete(notifications[0])
+        } catch {
+            print("Error:", error)
+        }
+        
     }
     
     func removeCompletedNotification(id: String) {
         UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [id])
     }
-    
+        
     func addNotification(_ notification: Notification) {
         scheduleNotification(notification)
     }
     
-    func listDeliverNotifications(completion: @escaping ([SectionedNotification]) -> Void) {
-        UNUserNotificationCenter.current().getDeliveredNotifications(completionHandler: { notifications in
-            let sortedNotifications = notifications.sorted(by: {$0.date > $1.date})
-            var sectionedNotifications = [SectionedNotification]()
-            
-            for notification in sortedNotifications {
-                let date = Utils.dateToString(notification.date)
-                if let index = sectionedNotifications.firstIndex(where: {$0.date == date}) {
-                    sectionedNotifications[index].notifications.append(notification.request.content.subtitle)
-                } else {
-                    sectionedNotifications.append(SectionedNotification(date: date, notifications: [notification.request.content.subtitle]))
-                }
-                
+    static func listNotifications(notifications: FetchedResults<Notification>) -> [SectionedNotification] {
+        var result = [SectionedNotification]()
+        for notification in notifications {
+            if notification.due > Date() {
+                continue
             }
-            completion(sectionedNotifications)
-        })
+            let date = Utils.dateToString(notification.due)
+            if let index = result.firstIndex(where: {$0.date == date}) {
+                result[index].notifications.append(notification)
+            } else {
+                result.append(SectionedNotification(date: date, notifications: [notification]))
+            }
+        }
+        
+        return result
     }
 }

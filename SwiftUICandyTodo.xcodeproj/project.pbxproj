@@ -9,14 +9,12 @@
 /* Begin PBXBuildFile section */
 		8C724F9123BF329B00C48050 /* TodayListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C724F9023BF329B00C48050 /* TodayListView.swift */; };
 		8C724F9423BF363F00C48050 /* CommonViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C724F9323BF363F00C48050 /* CommonViews.swift */; };
-		8C724F9723BF436E00C48050 /* TodoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C724F9623BF436E00C48050 /* TodoModel.swift */; };
 		8C724F9923BF6E8900C48050 /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C724F9823BF6E8900C48050 /* TitleView.swift */; };
 		8C724F9B23BF6F3300C48050 /* TodosListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C724F9A23BF6F3300C48050 /* TodosListView.swift */; };
 		8C724F9D23BF708500C48050 /* TodoListViewRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C724F9C23BF708500C48050 /* TodoListViewRow.swift */; };
 		8C724FA023BF860900C48050 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C724F9F23BF860900C48050 /* Utils.swift */; };
 		8C724FA323BF874500C48050 /* UpcomingListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C724FA223BF874500C48050 /* UpcomingListView.swift */; };
 		8C724FA823BFA1E000C48050 /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C724FA723BFA1E000C48050 /* NotificationsView.swift */; };
-		8C724FAA23BFA23A00C48050 /* CandyNotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C724FA923BFA23A00C48050 /* CandyNotificationModel.swift */; };
 		8C724FB123BFABBD00C48050 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C724FB023BFABBD00C48050 /* ProfileView.swift */; };
 		8C724FB523BFEA5000C48050 /* NewTodoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C724FB423BFEA5000C48050 /* NewTodoView.swift */; };
 		8C990A8823C1F445001E4C87 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C990A8723C1F445001E4C87 /* EditProfileView.swift */; };
@@ -26,6 +24,8 @@
 		8C990A9023C22E3D001E4C87 /* EditProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C990A8F23C22E3D001E4C87 /* EditProfileViewModel.swift */; };
 		8C990A9B23C310F6001E4C87 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C990A9923C310F6001E4C87 /* User+CoreDataClass.swift */; };
 		8C990A9C23C310F6001E4C87 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C990A9A23C310F6001E4C87 /* User+CoreDataProperties.swift */; };
+		8CB723A223C721A8007E93B9 /* Notification+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB723A023C721A8007E93B9 /* Notification+CoreDataClass.swift */; };
+		8CB723A323C721A8007E93B9 /* Notification+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB723A123C721A8007E93B9 /* Notification+CoreDataProperties.swift */; };
 		8CBBCF2E23BF2A1700D56452 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBBCF2D23BF2A1700D56452 /* AppDelegate.swift */; };
 		8CBBCF3023BF2A1700D56452 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBBCF2F23BF2A1700D56452 /* SceneDelegate.swift */; };
 		8CBBCF3323BF2A1700D56452 /* SwiftUICandyTodo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8CBBCF3123BF2A1700D56452 /* SwiftUICandyTodo.xcdatamodeld */; };
@@ -43,14 +43,12 @@
 /* Begin PBXFileReference section */
 		8C724F9023BF329B00C48050 /* TodayListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayListView.swift; sourceTree = "<group>"; };
 		8C724F9323BF363F00C48050 /* CommonViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonViews.swift; sourceTree = "<group>"; };
-		8C724F9623BF436E00C48050 /* TodoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoModel.swift; sourceTree = "<group>"; };
 		8C724F9823BF6E8900C48050 /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 		8C724F9A23BF6F3300C48050 /* TodosListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodosListView.swift; sourceTree = "<group>"; };
 		8C724F9C23BF708500C48050 /* TodoListViewRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListViewRow.swift; sourceTree = "<group>"; };
 		8C724F9F23BF860900C48050 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		8C724FA223BF874500C48050 /* UpcomingListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingListView.swift; sourceTree = "<group>"; };
 		8C724FA723BFA1E000C48050 /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
-		8C724FA923BFA23A00C48050 /* CandyNotificationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandyNotificationModel.swift; sourceTree = "<group>"; };
 		8C724FB023BFABBD00C48050 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		8C724FB423BFEA5000C48050 /* NewTodoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTodoView.swift; sourceTree = "<group>"; };
 		8C990A8723C1F445001E4C87 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
@@ -60,6 +58,8 @@
 		8C990A8F23C22E3D001E4C87 /* EditProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModel.swift; sourceTree = "<group>"; };
 		8C990A9923C310F6001E4C87 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
 		8C990A9A23C310F6001E4C87 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		8CB723A023C721A8007E93B9 /* Notification+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+CoreDataClass.swift"; sourceTree = "<group>"; };
+		8CB723A123C721A8007E93B9 /* Notification+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		8CBBCF2A23BF2A1700D56452 /* SwiftUICandyTodo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUICandyTodo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CBBCF2D23BF2A1700D56452 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8CBBCF2F23BF2A1700D56452 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -111,8 +111,6 @@
 			isa = PBXGroup;
 			children = (
 				8CCAA45423C5B21F00AAEEE8 /* CoreData Classes */,
-				8C724F9623BF436E00C48050 /* TodoModel.swift */,
-				8C724FA923BFA23A00C48050 /* CandyNotificationModel.swift */,
 				8CCAA43E23C35C5700AAEEE8 /* Priority.swift */,
 				8CCAA45223C482A100AAEEE8 /* LocalNotificationManager.swift */,
 			);
@@ -222,6 +220,8 @@
 		8CCAA45423C5B21F00AAEEE8 /* CoreData Classes */ = {
 			isa = PBXGroup;
 			children = (
+				8CB723A023C721A8007E93B9 /* Notification+CoreDataClass.swift */,
+				8CB723A123C721A8007E93B9 /* Notification+CoreDataProperties.swift */,
 				8CCAA44E23C4821800AAEEE8 /* Todo+CoreDataClass.swift */,
 				8CCAA44F23C4821800AAEEE8 /* Todo+CoreDataProperties.swift */,
 				8C990A9923C310F6001E4C87 /* User+CoreDataClass.swift */,
@@ -303,8 +303,10 @@
 			files = (
 				8C990A8C23C1FB35001E4C87 /* ProfileTitleView.swift in Sources */,
 				8CBBCF2E23BF2A1700D56452 /* AppDelegate.swift in Sources */,
+				8CB723A323C721A8007E93B9 /* Notification+CoreDataProperties.swift in Sources */,
 				8C990A9C23C310F6001E4C87 /* User+CoreDataProperties.swift in Sources */,
 				8C724F9423BF363F00C48050 /* CommonViews.swift in Sources */,
+				8CB723A223C721A8007E93B9 /* Notification+CoreDataClass.swift in Sources */,
 				8CBBCF3023BF2A1700D56452 /* SceneDelegate.swift in Sources */,
 				8CCAA45323C482A100AAEEE8 /* LocalNotificationManager.swift in Sources */,
 				8CCAA43D23C35C1400AAEEE8 /* NewTodoViewModel.swift in Sources */,
@@ -322,10 +324,8 @@
 				8CCAA45123C4821800AAEEE8 /* Todo+CoreDataProperties.swift in Sources */,
 				8C724FA023BF860900C48050 /* Utils.swift in Sources */,
 				8C724FB123BFABBD00C48050 /* ProfileView.swift in Sources */,
-				8C724F9723BF436E00C48050 /* TodoModel.swift in Sources */,
 				8C990A8A23C1F7D3001E4C87 /* CustomTextFieldStyle.swift in Sources */,
 				8CBBCF3323BF2A1700D56452 /* SwiftUICandyTodo.xcdatamodeld in Sources */,
-				8C724FAA23BFA23A00C48050 /* CandyNotificationModel.swift in Sources */,
 				8CCAA43F23C35C5700AAEEE8 /* Priority.swift in Sources */,
 				8C724F9923BF6E8900C48050 /* TitleView.swift in Sources */,
 				8C724FA823BFA1E000C48050 /* NotificationsView.swift in Sources */,
