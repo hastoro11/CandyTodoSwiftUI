@@ -8,10 +8,8 @@
 
 import SwiftUI
 
-struct TodayListView: View {
-    @Environment(\.managedObjectContext) var context
-    @EnvironmentObject var todoManager: TodoManager
-    
+struct TodayListView: View {    
+    @ObservedObject var viewModel: TodoListViewModel
     var body: some View {
         ZStack {
             Color("Pink")
@@ -23,17 +21,35 @@ struct TodayListView: View {
                 VStack {
                     TitleView(title: "TO-DO", subtitle: "Today's list")
                     List{
-                        ForEach(todoManager.todos, id:\.id) { todo in
-                            TodoListViewRow(todo: todo)
-                        }                        
+                        ForEach(viewModel.todaysTodos, id:\.id) { todo in
+                            TodoListViewRow(todo: todo, toggleCompleted: self.toggleCompleted, delete: self.delete)
+                        }
+                        .onDelete(perform: {indexSet in
+                            for index in indexSet {
+                                let todo = self.viewModel.todaysTodos[index]
+                                self.delete(todo)
+                            }
+                        })
                     }
                 }
             }
             
         }.onAppear {
-            self.todoManager.todaysTodos()
             UITableView.appearance().tableFooterView = UIView()
             UITableView.appearance().separatorStyle = .none
         }
+    }
+    
+    func toggleCompleted(_ todo: Todo) {
+        viewModel.toggleCompleted(todo)
+    }
+    
+    func delete(_ todo: Todo) {
+        viewModel.delete(todo)        
+    }
+    
+    init() {
+        self.viewModel = TodoListViewModel()
+        self.viewModel.fetchTodaysTodos()
     }
 }

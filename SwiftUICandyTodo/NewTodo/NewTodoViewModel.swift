@@ -12,6 +12,8 @@ import CoreData
 
 class NewTodoViewModel: ObservableObject {
     
+    var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
     @Published var title = ""
     @Published var due = Date()
     @Published var priority = Priority.medium.rawValue
@@ -21,13 +23,16 @@ class NewTodoViewModel: ObservableObject {
         return title.isEmpty
     }
     
-    func saveTodo(todoManager: TodoManager, localNotificationManager: LocalNotificationManager) {
+    func saveTodo() {
         let id = UUID()
-        todoManager.saveTodo(id: id, title: self.title, due: self.due, completed: false, getNotified: self.getNotified, priority: self.priority)        
+        let newTodo = Todo(context: context)
+        newTodo.id = id
+        newTodo.title = title
+        newTodo.due = due
+        newTodo.completed = false
+        newTodo.getNotified = getNotified
+        newTodo.priority = Int16(priority)
         
-        if getNotified {
-            localNotificationManager.addNotification(id: id.uuidString, title: "Reminder", subtitle: title, due: due)
-        }
+        try? context.save()
     }
-    
 }

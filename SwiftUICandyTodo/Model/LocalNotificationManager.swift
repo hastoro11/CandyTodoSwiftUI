@@ -62,7 +62,7 @@ class LocalNotificationManager: ObservableObject {
             }
         }
     }
-    
+        
     func cancelNotifications() {
         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
     }
@@ -96,7 +96,7 @@ class LocalNotificationManager: ObservableObject {
         }
     }
     
-    func removeNotification(id: String, context: NSManagedObjectContext) {
+    func removeNotification(id: String) {
         UNUserNotificationCenter.current().removeDeliveredNotifications(withIdentifiers: [id])
         UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [id])
         

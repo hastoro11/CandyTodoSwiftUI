@@ -8,10 +8,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
-    @Environment(\.managedObjectContext) var context
-    @EnvironmentObject var localNotificationManager: LocalNotificationManager
-    @EnvironmentObject var todoManager: TodoManager
+struct ContentView: View {    
     @State var showNewTodoView = false
     
     var body: some View {
@@ -71,9 +68,8 @@ struct ContentView: View {
             }
         }        
         .sheet(isPresented: $showNewTodoView, content: {
-            NewTodoView().environment(\.managedObjectContext, self.context)
-                .environmentObject(self.todoManager)
-                .environmentObject(self.localNotificationManager)
+            NewTodoView()
+                
         })
     }
     

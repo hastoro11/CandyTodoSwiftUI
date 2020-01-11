@@ -10,8 +10,6 @@ import SwiftUI
 
 struct NewTodoView: View {
     @Environment(\.presentationMode) var presentationMode
-    @EnvironmentObject var todoManager: TodoManager
-    @EnvironmentObject var localNotificationManager: LocalNotificationManager
     
     @ObservedObject var viewModel = NewTodoViewModel()
         
@@ -42,7 +40,7 @@ struct NewTodoView: View {
     }
 
     func buttonTapped() {
-        viewModel.saveTodo(todoManager: todoManager, localNotificationManager: localNotificationManager)
+        viewModel.saveTodo()
         presentationMode.wrappedValue.dismiss()
     }
     
