@@ -23,9 +23,5 @@ extension Todo {
     @NSManaged public var priority: Int16
     @NSManaged public var title: String
     @NSManaged public var getNotified: Bool
-
-    struct DailyTodo {
-        var date: String
-        var todos: [Todo]
-    }
+    
 }

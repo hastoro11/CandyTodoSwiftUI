@@ -9,35 +9,41 @@
 import SwiftUI
 import CoreData
 
+struct DailyTodo {
+    var date: String
+    var todos: [Todo]
+}
+
 class TodoListViewModel: ObservableObject {
     var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        
-    @Published var todaysTodos: [Todo] = []
     
-    init() {
-        NotificationCenter.default.addObserver(self, selector: #selector(refresh), name: NSNotification.Name.NSManagedObjectContextDidSave, object: nil)
-    }
-    
-    @objc func refresh() {
-        fetchTodaysTodos()
-    }
-    
-    func fetchTodaysTodos(){
-        let fetchRequest: NSFetchRequest<Todo> = NSFetchRequest(entityName: "Todo")
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "due", ascending: true)]
+    static var upcomingPredicate: NSPredicate = {
         let dateFrom = Calendar.current.startOfDay(for: Date())
         let dateTo = Calendar.current.date(byAdding: .day, value: 1, to: dateFrom)!
         
-        fetchRequest.predicate = NSPredicate(format: "%K BETWEEN {%@, %@}", "due", dateFrom as NSDate, dateTo as NSDate)
+        return NSPredicate(format: "%K > %@", "due", dateTo as NSDate)
+    }()
+    
+    static var todayPredicate: NSPredicate = {
+        let dateFrom = Calendar.current.startOfDay(for: Date())
+        let dateTo = Calendar.current.date(byAdding: .day, value: 1, to: dateFrom)!
         
-        do {
-            let todos = try context.fetch(fetchRequest)
-            self.todaysTodos = todos
-        } catch {
-            print("Error fetching:", error)
-            self.todaysTodos = []
+        return NSPredicate(format: "%K BETWEEN {%@, %@}", "due", dateFrom as NSDate, dateTo as NSDate)
+    }()
+    
+    func createUpcomingTodos(_ todos: FetchedResults<Todo>) -> [DailyTodo] {
+        var result = [DailyTodo]()
+        for todo in todos {
+            let date = Utils.dateToString(todo.due)
+            if let index = result.firstIndex(where: {$0.date == date}) {
+                result[index].todos.append(todo)
+            } else {
+                result.append(DailyTodo(date: date, todos: [todo]))
+            }
         }
+        return result
     }
+    
     
     func toggleCompleted(_ todo: Todo) {
             todo.completed.toggle()

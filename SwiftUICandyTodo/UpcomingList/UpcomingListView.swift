@@ -9,7 +9,8 @@
 import SwiftUI
 
 struct UpcomingListView: View {
-    @FetchRequest(entity: Todo.entity(), sortDescriptors: [NSSortDescriptor(key: "due", ascending: true)], predicate: Utils.upcomingPredicate()) var todos: FetchedResults<Todo>
+    @ObservedObject var viewModel = TodoListViewModel()
+    @FetchRequest(entity: Todo.entity(), sortDescriptors: [NSSortDescriptor(key: "due", ascending: true)], predicate: TodoListViewModel.upcomingPredicate) var todos: FetchedResults<Todo>
     
     var body: some View {
         ZStack {
@@ -21,20 +22,29 @@ struct UpcomingListView: View {
                     TitleView(title: "SCHEDULER", subtitle: "Upcoming tasks")
                     
                     List {
-                        ForEach(Utils.upcomingTodos(todos), id:\.date) {dailyTodo in
+                        ForEach(viewModel.createUpcomingTodos(todos), id:\.date) {dailyTodo in
                             Section(header: SectionHeader(title: dailyTodo.date)) {
                                 ForEach(dailyTodo.todos, id:\.self) {todo in
-                                    TodoListViewRow(todo: todo)
+                                    TodoListViewRow(todo: todo, toggleCompleted: self.toggleCompleted(_:), delete: self.delete(_:))
                                 }
                             }
                             .background(Color.white)
                         }
+                        
                     }
+                    
                 }
             }
-        }
+        }        
     }
     
+    func toggleCompleted(_ todo: Todo) {
+        viewModel.toggleCompleted(todo)
+    }
+    
+    func delete(_ todo: Todo) {
+        viewModel.delete(todo)
+    }
 }
 
 

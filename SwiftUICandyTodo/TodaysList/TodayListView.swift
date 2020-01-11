@@ -9,7 +9,9 @@
 import SwiftUI
 
 struct TodayListView: View {    
-    @ObservedObject var viewModel: TodoListViewModel
+    @ObservedObject var viewModel = TodoListViewModel()
+    @FetchRequest(entity: Todo.entity(), sortDescriptors: [NSSortDescriptor(key: "due", ascending: true)], predicate: TodoListViewModel.todayPredicate) var todos: FetchedResults<Todo>
+    
     var body: some View {
         ZStack {
             Color("Pink")
@@ -21,12 +23,12 @@ struct TodayListView: View {
                 VStack {
                     TitleView(title: "TO-DO", subtitle: "Today's list")
                     List{
-                        ForEach(viewModel.todaysTodos, id:\.id) { todo in
+                        ForEach(todos, id:\.id) { todo in
                             TodoListViewRow(todo: todo, toggleCompleted: self.toggleCompleted, delete: self.delete)
                         }
                         .onDelete(perform: {indexSet in
                             for index in indexSet {
-                                let todo = self.viewModel.todaysTodos[index]
+                                let todo = self.todos[index]
                                 self.delete(todo)
                             }
                         })
@@ -46,10 +48,5 @@ struct TodayListView: View {
     
     func delete(_ todo: Todo) {
         viewModel.delete(todo)        
-    }
-    
-    init() {
-        self.viewModel = TodoListViewModel()
-        self.viewModel.fetchTodaysTodos()
     }
 }

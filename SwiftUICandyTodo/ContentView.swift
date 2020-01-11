@@ -14,7 +14,7 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             TabView {
-                TodayListView()                
+                TodayListView()       
                     .tabItem({
                         Image(systemName: "list.bullet")
                             .font(.system(size: 24))
