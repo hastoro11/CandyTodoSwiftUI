@@ -9,10 +9,9 @@
 import SwiftUI
 
 struct TodoListViewRow: View {
-    @Environment(\.managedObjectContext) var context
-    @EnvironmentObject var localNotificationManager: LocalNotificationManager
     var todo: Todo
-    @State var refresh = false
+    var toggleCompleted: ((Todo) -> Void)?
+    var delete: ((Todo) -> Void)?
     
     var body: some View {
         HStack(spacing: 30) {
@@ -21,7 +20,7 @@ struct TodoListViewRow: View {
             } else {
                 UncheckedView()
             }
-            Text(todo.title + (refresh ? "" : ""))
+            Text(todo.title)
                 .font(.custom("Avenir-Book", size: 16))
                 .foregroundColor(todo.completed ? Color("Light Blue") : Color("Dark Blue"))
         }
@@ -30,18 +29,13 @@ struct TodoListViewRow: View {
         .padding(.vertical, 10)
         .contextMenu(menuItems: {
             Button(action: {
-                self.todo.completed.toggle()
-                try? self.context.save()
-                self.localNotificationManager.removeCompletedNotification(id: self.todo.id.uuidString)
-                self.refresh.toggle()
+                self.toggleCompleted?(self.todo)
             }, label: {
                 Image(systemName: "checkmark.circle")
                 Text("Completed")
             })
             Button(action: {
-                self.context.delete(self.todo)
-                self.localNotificationManager.removeNotification(id: self.todo.id.uuidString, context: self.context)
-                try? self.context.save()
+                self.delete?(self.todo)
             }, label: {
                 Image(systemName: "trash")
                 Text("Delete")
@@ -52,9 +46,3 @@ struct TodoListViewRow: View {
     
     
 }
-
-//struct TodoListViewRow_Previews: PreviewProvider {
-//    static var previews: some View {
-//        TodoListViewRow(todo: TestTodo.examples[0]).previewLayout(.sizeThatFits)
-//    }
-//}

@@ -12,6 +12,7 @@ import CoreData
 import SwiftUI
 
 class LocalNotificationManager: ObservableObject {
+    var context: NSManagedObjectContext
     
     //MARK: - properties
     struct SectionedNotification {
@@ -20,7 +21,8 @@ class LocalNotificationManager: ObservableObject {
     }
 
     //MARK: - init
-    init() {
+    init(_ context: NSManagedObjectContext) {
+        self.context = context
         UNUserNotificationCenter.current().getPendingNotificationRequests { (requests) in
             for r in requests {
                 print("pending", r.content.subtitle)
@@ -60,7 +62,7 @@ class LocalNotificationManager: ObservableObject {
             }
         }
     }
-    
+        
     func cancelNotifications() {
         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
     }
@@ -94,7 +96,7 @@ class LocalNotificationManager: ObservableObject {
         }
     }
     
-    func removeNotification(id: String, context: NSManagedObjectContext) {
+    func removeNotification(id: String) {
         UNUserNotificationCenter.current().removeDeliveredNotifications(withIdentifiers: [id])
         UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [id])
         
@@ -114,7 +116,15 @@ class LocalNotificationManager: ObservableObject {
         UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [id])
     }
         
-    func addNotification(_ notification: Notification) {
+    func addNotification(id: String, title: String, subtitle: String, due: Date) {
+        let notification = Notification(context: context)
+        notification.id = id
+        notification.title = title
+        notification.subtitle = subtitle
+        notification.due = due
+        
+        try? context.save()
+        
         scheduleNotification(notification)
     }
     

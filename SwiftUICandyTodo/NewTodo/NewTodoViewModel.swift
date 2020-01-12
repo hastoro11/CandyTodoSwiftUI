@@ -6,45 +6,33 @@
 //  Copyright © 2020. Gabor Sornyei. All rights reserved.
 //
 
-import Foundation
+import SwiftUI
 import Combine
 import CoreData
 
 class NewTodoViewModel: ObservableObject {
     
-    var localNotificationmanager = LocalNotificationManager()
+    var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     @Published var title = ""
     @Published var due = Date()
     @Published var priority = Priority.medium.rawValue
     @Published var getNotified = true
-    
+
     var isButtonDisabled: Bool {
         return title.isEmpty
     }
     
-    func saveTodo(context: NSManagedObjectContext) {
+    func saveTodo() {
+        let id = UUID()
         let newTodo = Todo(context: context)
-        newTodo.id = UUID()
-        newTodo.title = self.title
-        newTodo.due = self.due
+        newTodo.id = id
+        newTodo.title = title
+        newTodo.due = due
         newTodo.completed = false
-        newTodo.getNotified = self.getNotified
-        newTodo.priority = Int16(self.priority)
+        newTodo.getNotified = getNotified
+        newTodo.priority = Int16(priority)
         
-        if getNotified {
-            let notification = Notification(context: context)
-            notification.id = newTodo.id.uuidString
-            notification.title = "Reminder"
-            notification.subtitle = newTodo.title
-            notification.due = newTodo.due
-            localNotificationmanager.addNotification(notification)
-        }
-        
-        do {
-            try context.save()
-        } catch {
-            print("Error saving:", error)
-        }
+        try? context.save()
     }
 }

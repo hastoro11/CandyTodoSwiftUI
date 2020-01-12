@@ -8,15 +8,13 @@
 
 import SwiftUI
 
-struct ContentView: View {
-    @Environment(\.managedObjectContext) var context
-    @EnvironmentObject var localNotificationManager: LocalNotificationManager
+struct ContentView: View {    
     @State var showNewTodoView = false
     
     var body: some View {
         ZStack {
             TabView {
-                TodayListView()                
+                TodayListView()       
                     .tabItem({
                         Image(systemName: "list.bullet")
                             .font(.system(size: 24))
@@ -70,7 +68,8 @@ struct ContentView: View {
             }
         }        
         .sheet(isPresented: $showNewTodoView, content: {
-            NewTodoView().environment(\.managedObjectContext, self.context)
+            NewTodoView()
+                
         })
     }
     

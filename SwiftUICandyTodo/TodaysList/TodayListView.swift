@@ -8,14 +8,10 @@
 
 import SwiftUI
 
-struct TodayListView: View {
-    @Environment(\.managedObjectContext) var context
-    @FetchRequest(entity: Todo.entity(), sortDescriptors: [NSSortDescriptor(key: "due", ascending: true)], predicate: Utils.todayPredicate()) var todos: FetchedResults<Todo>
-    @State var refresh = false {
-        didSet {
-            print(refresh)
-        }
-    }
+struct TodayListView: View {    
+    @ObservedObject var viewModel = TodoListViewModel()
+    @FetchRequest(entity: Todo.entity(), sortDescriptors: [NSSortDescriptor(key: "due", ascending: true)], predicate: TodoListViewModel.todayPredicate) var todos: FetchedResults<Todo>
+    
     var body: some View {
         ZStack {
             Color("Pink")
@@ -26,22 +22,31 @@ struct TodayListView: View {
                 
                 VStack {
                     TitleView(title: "TO-DO", subtitle: "Today's list")
-                    TodosListView(todos: todos)
+                    List{
+                        ForEach(todos, id:\.id) { todo in
+                            TodoListViewRow(todo: todo, toggleCompleted: self.toggleCompleted, delete: self.delete)
+                        }
+                        .onDelete(perform: {indexSet in
+                            for index in indexSet {
+                                let todo = self.todos[index]
+                                self.delete(todo)
+                            }
+                        })
+                    }
                 }
             }
             
+        }.onAppear {
+            UITableView.appearance().tableFooterView = UIView()
+            UITableView.appearance().separatorStyle = .none
         }
     }
     
-    func complete(_ todo: Todo) {
-        todo.completed.toggle()
-        try? context.save()        
-        self.refresh.toggle()
+    func toggleCompleted(_ todo: Todo) {
+        viewModel.toggleCompleted(todo)
     }
-}
-
-struct TodayListView_Previews: PreviewProvider {
-    static var previews: some View {
-        TodayListView()
+    
+    func delete(_ todo: Todo) {
+        viewModel.delete(todo)        
     }
 }
