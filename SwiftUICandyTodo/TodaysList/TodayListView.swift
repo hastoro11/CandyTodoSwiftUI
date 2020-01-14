@@ -24,12 +24,12 @@ struct TodayListView: View {
                     TitleView(title: "TO-DO", subtitle: "Today's list")
                     List{
                         ForEach(todos, id:\.id) { todo in
-                            TodoListViewRow(todo: todo, toggleCompleted: self.toggleCompleted, delete: self.delete)
+                            TodoListViewRow(todo: todo)
                         }
                         .onDelete(perform: {indexSet in
                             for index in indexSet {
                                 let todo = self.todos[index]
-                                self.delete(todo)
+                                
                             }
                         })
                     }
@@ -40,13 +40,5 @@ struct TodayListView: View {
             UITableView.appearance().tableFooterView = UIView()
             UITableView.appearance().separatorStyle = .none
         }
-    }
-    
-    func toggleCompleted(_ todo: Todo) {
-        viewModel.toggleCompleted(todo)
-    }
-    
-    func delete(_ todo: Todo) {
-        viewModel.delete(todo)        
     }
 }

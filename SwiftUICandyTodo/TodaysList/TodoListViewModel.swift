@@ -33,8 +33,10 @@ class TodoListViewModel: ObservableObject {
     }()
     
     func createUpcomingTodos(_ todos: FetchedResults<Todo>) -> [DailyTodo] {
+        
         var result = [DailyTodo]()
         for todo in todos {
+            
             let date = Utils.dateToString(todo.due)
             if let index = result.firstIndex(where: {$0.date == date}) {
                 result[index].todos.append(todo)
@@ -63,4 +65,10 @@ class TodoListViewModel: ObservableObject {
             try? self.context.save()
         }
     }
+}
+
+struct UpcomingTodo {
+    var objectID: NSManagedObjectID
+    var completed: Bool
+    var title: String
 }

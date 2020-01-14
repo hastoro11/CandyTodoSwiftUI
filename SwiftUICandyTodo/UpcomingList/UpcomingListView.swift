@@ -7,8 +7,10 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct UpcomingListView: View {
+    @Environment(\.managedObjectContext) var context
     @ObservedObject var viewModel = TodoListViewModel()
     @FetchRequest(entity: Todo.entity(), sortDescriptors: [NSSortDescriptor(key: "due", ascending: true)], predicate: TodoListViewModel.upcomingPredicate) var todos: FetchedResults<Todo>
     
@@ -20,30 +22,22 @@ struct UpcomingListView: View {
                 Color.white
                 VStack {
                     TitleView(title: "SCHEDULER", subtitle: "Upcoming tasks")
-                    
-                    List {
-                        ForEach(viewModel.createUpcomingTodos(todos), id:\.date) {dailyTodo in
-                            Section(header: SectionHeader(title: dailyTodo.date)) {
-                                ForEach(dailyTodo.todos, id:\.self) {todo in
-                                    TodoListViewRow(todo: todo, toggleCompleted: self.toggleCompleted(_:), delete: self.delete(_:))
+                    ScrollView(showsIndicators: false) {
+                        VStack(alignment: .leading) {
+                            ForEach(viewModel.createUpcomingTodos(todos), id:\.date) { dailyTodo in
+                                VStack {
+                                    SectionHeader(title: dailyTodo.date)
+                                    ForEach(dailyTodo.todos, id:\.objectID) {todo in
+                                       TodoListViewRow(todo: todo)
+                                        .padding(.horizontal, 15)
+                                    }
                                 }
                             }
-                            .background(Color.white)
                         }
-                        
                     }
-                    
                 }
             }
         }        
-    }
-    
-    func toggleCompleted(_ todo: Todo) {
-        viewModel.toggleCompleted(todo)
-    }
-    
-    func delete(_ todo: Todo) {
-        viewModel.delete(todo)
     }
 }
 

@@ -25,11 +25,12 @@ struct NotificationsView: View {
                 Color.white
                 VStack {
                     TitleView(title: "NOTIFICATIONS", subtitle: "Received alerts")
-                    List {
+                    
+                    ScrollView(.vertical, showsIndicators: false) {
                         ForEach(viewModel.listNotifications(notifications: notifications), id:\.date) { dailyNotification in
-                            
-                            Section(header: SectionHeader(title: dailyNotification.date)) {
-                                ForEach(dailyNotification.notifications, id:\.self) {notification in
+                            VStack(alignment: .leading) {
+                                SectionHeader(title: dailyNotification.date)
+                                ForEach(dailyNotification.notifications, id:\.self) { notification in
                                     HStack(spacing: 30) {
                                         InfoView()
                                         Text("\(notification.title + (self.refreshing ? "" : "")) : \(notification.subtitle)")
@@ -37,21 +38,20 @@ struct NotificationsView: View {
                                             .foregroundColor(Color("Dark Blue"))
                                     }
                                     .frame(maxWidth: .infinity, alignment: .leading)
-                                    .padding(.horizontal, 30)
+                                    .padding(.horizontal, 45)
                                     .padding(.vertical, 10)
-                                .contextMenu(menuItems: {
-                                    Button(action: {
-                                        self.viewModel.deleteNotifocation(notification)
-                                    }, label: {
-                                        Image(systemName: "trash")
-                                        Text("Delete")
+                                    .contextMenu(menuItems: {
+                                        Button(action: {
+                                            self.viewModel.deleteNotifocation(notification)
+                                        }, label: {
+                                            Image(systemName: "trash")
+                                            Text("Delete")
+                                        })
                                     })
-                                })
                                 }
                             }
                         }
-                    }
-                    
+                    }                    
                 }
             }
             .onReceive(self.didSavePublisher, perform: {_ in

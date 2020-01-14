@@ -9,10 +9,12 @@
 import SwiftUI
 
 struct TodoListViewRow: View {
+    @Environment(\.managedObjectContext) var context
     var todo: Todo
-    var toggleCompleted: ((Todo) -> Void)?
-    var delete: ((Todo) -> Void)?
-    
+    var currentTodo: Todo {
+        context.object(with: todo.objectID) as! Todo
+    }
+    @State var refreshing = false
     var body: some View {
         HStack(spacing: 30) {
             if todo.completed {
@@ -20,7 +22,7 @@ struct TodoListViewRow: View {
             } else {
                 UncheckedView()
             }
-            Text(todo.title)
+            Text(todo.title + (refreshing ? "" : ""))
                 .font(.custom("Avenir-Book", size: 16))
                 .foregroundColor(todo.completed ? Color("Light Blue") : Color("Dark Blue"))
         }
@@ -28,15 +30,11 @@ struct TodoListViewRow: View {
         .padding(.horizontal, 30)
         .padding(.vertical, 10)
         .contextMenu(menuItems: {
-            Button(action: {
-                self.toggleCompleted?(self.todo)
-            }, label: {
+            Button(action: complete, label: {
                 Image(systemName: "checkmark.circle")
                 Text("Completed")
             })
-            Button(action: {
-                self.delete?(self.todo)
-            }, label: {
+            Button(action: delete, label: {
                 Image(systemName: "trash")
                 Text("Delete")
             })
@@ -44,5 +42,16 @@ struct TodoListViewRow: View {
         
     }
     
+    func complete() {
+        todo.completed.toggle()
+        try? context.save()
+        refreshing.toggle()
+    }
+    
+    func delete() {
+        context.delete(todo)
+        try? context.save()
+        refreshing.toggle()
+    }
     
 }
