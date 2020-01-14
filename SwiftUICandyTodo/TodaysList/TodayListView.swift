@@ -7,8 +7,10 @@
 //
 
 import SwiftUI
+import CoreData
 
-struct TodayListView: View {    
+struct TodayListView: View {
+    @Environment(\.managedObjectContext) var context
     @ObservedObject var viewModel = TodoListViewModel()
     @FetchRequest(entity: Todo.entity(), sortDescriptors: [NSSortDescriptor(key: "due", ascending: true)], predicate: TodoListViewModel.todayPredicate) var todos: FetchedResults<Todo>
     
@@ -29,7 +31,7 @@ struct TodayListView: View {
                         .onDelete(perform: {indexSet in
                             for index in indexSet {
                                 let todo = self.todos[index]
-                                
+                                self.delete(todo)
                             }
                         })
                     }
@@ -40,5 +42,10 @@ struct TodayListView: View {
             UITableView.appearance().tableFooterView = UIView()
             UITableView.appearance().separatorStyle = .none
         }
+    }
+    
+    func delete(_ todo: Todo) {
+        context.delete(todo)
+        try? context.save()
     }
 }
