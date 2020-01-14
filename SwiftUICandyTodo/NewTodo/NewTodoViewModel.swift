@@ -13,6 +13,7 @@ import CoreData
 class NewTodoViewModel: ObservableObject {
     
     var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    var localNotificationManager = LocalNotificationManager()
     
     @Published var title = ""
     @Published var due = Date()
@@ -34,5 +35,13 @@ class NewTodoViewModel: ObservableObject {
         newTodo.priority = Int16(priority)
         
         try? context.save()
+        
+        if getNotified {
+            localNotificationManager.addNotification(id: id.uuidString, title: "Reminder", subtitle: self.title, due: self.due)
+        }
+    }
+    
+    private func saveNotification(_ id: String) {
+        
     }
 }
