@@ -12,7 +12,7 @@ import CoreData
 struct ProfileView: View {
     @FetchRequest(entity: User.entity(), sortDescriptors: []) var users: FetchedResults<User>
     @Environment(\.managedObjectContext) var context
-    @EnvironmentObject var localNotificationManager: LocalNotificationManager
+    var localNotificationManager = LocalNotificationManager()
     
     @State var sendNotifications = false
     @State var vibrateOnAlert = true

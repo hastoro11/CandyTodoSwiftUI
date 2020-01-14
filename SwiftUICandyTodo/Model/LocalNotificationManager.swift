@@ -12,7 +12,7 @@ import CoreData
 import SwiftUI
 
 class LocalNotificationManager: ObservableObject {
-    var context: NSManagedObjectContext
+    var context: NSManagedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     //MARK: - properties
     struct SectionedNotification {
@@ -21,8 +21,7 @@ class LocalNotificationManager: ObservableObject {
     }
 
     //MARK: - init
-    init(_ context: NSManagedObjectContext) {
-        self.context = context
+    init() {
         UNUserNotificationCenter.current().getPendingNotificationRequests { (requests) in
             for r in requests {
                 print("pending", r.content.subtitle)
@@ -128,7 +127,7 @@ class LocalNotificationManager: ObservableObject {
         scheduleNotification(notification)
     }
     
-    static func listNotifications(notifications: FetchedResults<Notification>) -> [SectionedNotification] {
+    func listNotifications(notifications: FetchedResults<Notification>) -> [SectionedNotification] {
         var result = [SectionedNotification]()
         for notification in notifications {
             if notification.due > Date() {

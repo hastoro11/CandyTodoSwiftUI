@@ -16,6 +16,7 @@ struct DailyTodo {
 
 class TodoListViewModel: ObservableObject {
     var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    var localNotificationManager = LocalNotificationManager()
     
     static var upcomingPredicate: NSPredicate = {
         let dateFrom = Calendar.current.startOfDay(for: Date())
@@ -46,9 +47,12 @@ class TodoListViewModel: ObservableObject {
     
     
     func toggleCompleted(_ todo: Todo) {
-            todo.completed.toggle()
-            try? self.context.save()
-                
+        todo.completed.toggle()
+        if todo.completed, let id = todo.id?.uuidString {
+            localNotificationManager.removeCompletedNotification(id: id)
+        }
+        try? self.context.save()
+        
     }
     
     func delete(_ todo: Todo) {
