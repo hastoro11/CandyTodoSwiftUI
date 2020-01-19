@@ -31,7 +31,7 @@ struct TodayListView: View {
                         .onDelete(perform: {indexSet in
                             for index in indexSet {
                                 let todo = self.todos[index]
-                                self.delete(todo)
+                                self.viewModel.delete(todo)
                             }
                         })
                     }
@@ -44,8 +44,4 @@ struct TodayListView: View {
         }
     }
     
-    func delete(_ todo: Todo) {
-        context.delete(todo)
-        try? context.save()
-    }
 }

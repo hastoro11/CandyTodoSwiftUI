@@ -10,6 +10,8 @@ import SwiftUI
 
 struct TodoListViewRow: View {
     @Environment(\.managedObjectContext) var context
+    @ObservedObject var todoViewListModel = TodoListViewModel()
+    var localNotificationManager = LocalNotificationManager()
     var todo: Todo
     var currentTodo: Todo {
         context.object(with: todo.objectID) as! Todo
@@ -43,14 +45,12 @@ struct TodoListViewRow: View {
     }
     
     func complete() {
-        todo.completed.toggle()
-        try? context.save()
+        todoViewListModel.toggleCompleted(todo)
         refreshing.toggle()
     }
     
     func delete() {
-        context.delete(todo)
-        try? context.save()
+        todoViewListModel.delete(todo)
         refreshing.toggle()
     }
     

@@ -18,11 +18,20 @@ class NotificationViewModel: ObservableObject {
         var date: String
         var notifications: [Notification]
     }
+    
+    @Published var keepNotificationsForDays: Int {
+        didSet {
+            UserDefaults.standard.set(keepNotificationsForDays, forKey: "KeepNotificationsForDays")
+        }
+    }
     //MARK: - funcs
     func listNotifications(notifications: FetchedResults<Notification>) -> [SectionedNotification] {
         var result = [SectionedNotification]()
+        let upperLimit = Calendar.current.date(byAdding: .day, value: -self.keepNotificationsForDays, to: Date()) ?? Date()
+        print("limit", upperLimit)
         for notification in notifications {
-            if notification.due > Date() {
+            print(notification.due)
+            if notification.due > Date() || notification.due < upperLimit  {
                 continue
             }
             let date = Utils.dateToString(notification.due)
@@ -36,8 +45,7 @@ class NotificationViewModel: ObservableObject {
         return result
     }
     
-    func deleteNotifocation(_ notification: Notification) {
-        context.delete(notification)
-        try? context.save()
+    init() {
+        keepNotificationsForDays = UserDefaults.standard.integer(forKey: "KeepNotificationsForDays")
     }
 }

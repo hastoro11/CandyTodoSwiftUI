@@ -12,11 +12,12 @@ import CoreData
 struct ProfileView: View {
     @FetchRequest(entity: User.entity(), sortDescriptors: []) var users: FetchedResults<User>
     @Environment(\.managedObjectContext) var context
-    var localNotificationManager = LocalNotificationManager()
+    @ObservedObject var localNotificationManager = LocalNotificationManager()
     
     @State var sendNotifications = false
     @State var vibrateOnAlert = true
     @State var showEditProfile = false
+    @State var keepNotificationsForDays = 3
     var body: some View {
         let sendNotifications = Binding<Bool>(get: {
             return self.sendNotifications
@@ -42,6 +43,7 @@ struct ProfileView: View {
                         })
                     }
                     .padding(.horizontal, 30)
+                    .padding(.bottom, 20)
                     HStack {
                         Text("Vibrate on alert")
                             .foregroundColor(Color("Dark Blue"))
@@ -51,6 +53,17 @@ struct ProfileView: View {
                         })
                     }
                     .padding(.horizontal, 30)
+                    .padding(.bottom, 20)
+                    HStack {
+                        Group {
+                            Text("Keep notifications for ") + Text("\(localNotificationManager.keepNotificationsForDays)").bold() + Text(" of days")
+                        }
+                        .foregroundColor(Color("Dark Blue"))
+                        .font(.custom("Avenir-Book", size: 16))
+                        Stepper("", value: $localNotificationManager.keepNotificationsForDays, in: (0...7))
+                    }
+                    .padding(.horizontal, 30)
+                    .padding(.bottom, 20)
                 }
             }
             .sheet(isPresented: $showEditProfile, content: {

@@ -19,6 +19,12 @@ class LocalNotificationManager: ObservableObject {
         var date: String
         var notifications: [Notification]
     }
+    
+    @Published var keepNotificationsForDays: Int {
+        didSet {
+            UserDefaults.standard.set(keepNotificationsForDays, forKey: "KeepNotificationsForDays")
+        }
+    }
 
     //MARK: - init
     init() {
@@ -32,6 +38,8 @@ class LocalNotificationManager: ObservableObject {
                 print("delivered", n.request.content.subtitle, n.date)
             }
         }
+        
+        keepNotificationsForDays = UserDefaults.standard.integer(forKey: "KeepNotificationsForDays")
     }
     
     //MARK: - funcs
@@ -129,8 +137,9 @@ class LocalNotificationManager: ObservableObject {
     
     func listNotifications(notifications: FetchedResults<Notification>) -> [SectionedNotification] {
         var result = [SectionedNotification]()
+        let upperLimit = Calendar.current.date(byAdding: .day, value: -self.keepNotificationsForDays, to: Date()) ?? Date()
         for notification in notifications {
-            if notification.due > Date() {
+            if notification.due > Date() || notification.due < upperLimit {
                 continue
             }
             let date = Utils.dateToString(notification.due)

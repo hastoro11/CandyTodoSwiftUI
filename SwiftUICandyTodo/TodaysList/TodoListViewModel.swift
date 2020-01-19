@@ -58,12 +58,9 @@ class TodoListViewModel: ObservableObject {
     }
     
     func delete(_ todo: Todo) {
-        let todoId = todo.objectID
-        context.perform {
-            let todo = self.context.object(with: todoId)
-            self.context.delete(todo)
-            try? self.context.save()
-        }
+        self.context.delete(todo)
+        localNotificationManager.removeNotification(id: todo.id!.uuidString)
+        try? self.context.save()
     }
 }
 
