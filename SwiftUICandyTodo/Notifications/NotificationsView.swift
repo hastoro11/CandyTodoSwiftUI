@@ -11,10 +11,10 @@ import CoreData
 import UserNotifications
 
 struct NotificationsView: View {
-    
-    @FetchRequest(entity: Notification.entity(), sortDescriptors: [NSSortDescriptor(key: "due", ascending: true)]) var notifications: FetchedResults<Notification>    
     @ObservedObject var viewModel = NotificationViewModel()
-    private var didSavePublisher = NotificationCenter.default.publisher(for: .NSManagedObjectContextDidSave)
+    
+    @FetchRequest(entity: Reminder.entity(), sortDescriptors: [NSSortDescriptor(key: "due", ascending: true)]) var reminders: FetchedResults<Reminder>
+    
     @State var refreshing = false
     var body: some View {
         ZStack {
@@ -23,32 +23,32 @@ struct NotificationsView: View {
             ZStack {
                 Color.white
                 VStack {
-                    TitleView(title: "NOTIFICATIONS", subtitle: "Alerts")
-                    if self.refreshing || !self.refreshing {
-                        ScrollView(.vertical, showsIndicators: false) {
-                            ForEach(viewModel.listNotifications(notifications: notifications), id:\.date) { dailyNotification in
-                                VStack(alignment: .leading) {
-                                    SectionHeader(title: dailyNotification.date)
-                                    ForEach(dailyNotification.notifications, id:\.self) { notification in
-                                        HStack(spacing: 30) {
-                                            InfoView()
-                                            Text("\(notification.title + (self.refreshing ? "" : "")) : \(notification.subtitle)")
-                                                .font(.custom("Avenir-Book", size: 16))
-                                                .foregroundColor(Color("Dark Blue"))
-                                        }
-                                        .frame(maxWidth: .infinity, alignment: .leading)
-                                        .padding(.horizontal, 45)
-                                        .padding(.vertical, 10)
+                    TitleView(title: "NOTIFICATIONS", subtitle: "Alerts")                    
+                    ScrollView(.vertical, showsIndicators: false) {
+                        ForEach(viewModel.listReminders(reminders: reminders), id:\.date) { dailyReminder in
+                            VStack(alignment: .leading) {
+                                SectionHeader(title: dailyReminder.date)
+                                ForEach(dailyReminder.reminders, id:\.self) { reminder in
+                                    HStack(spacing: 30) {
+                                        InfoView()
+                                        Text("\(reminder.title + (self.refreshing ? "" : "")) : \(reminder.subtitle)")
+                                            .font(.custom("Avenir-Book", size: 16))
+                                            .foregroundColor(Color("Dark Blue"))
                                     }
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    .padding(.horizontal, 45)
+                                    .padding(.vertical, 10)
                                 }
                             }
                         }
                     }
+                    
                 }
             }
-            .onReceive(self.didSavePublisher, perform: {_ in
-                self.refreshing.toggle()
-            })
+            .onAppear {
+                print("appear")
+                self.viewModel.refresh()
+            }
         }
     }
 }

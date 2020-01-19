@@ -13,16 +13,15 @@ struct ProfileView: View {
     @FetchRequest(entity: User.entity(), sortDescriptors: []) var users: FetchedResults<User>
     @Environment(\.managedObjectContext) var context
     @ObservedObject var localNotificationManager = LocalNotificationManager()
-    
-    @State var sendNotifications = false
+        
     @State var vibrateOnAlert = true
     @State var showEditProfile = false
     @State var keepNotificationsForDays = 3
     var body: some View {
         let sendNotifications = Binding<Bool>(get: {
-            return self.sendNotifications
+            return self.localNotificationManager.sendNotifications
         }, set: {
-            self.sendNotifications = $0
+            self.localNotificationManager.sendNotifications = $0
             if $0 {
                 self.localNotificationManager.checkAuthorization()
             } else {
@@ -44,23 +43,23 @@ struct ProfileView: View {
                     }
                     .padding(.horizontal, 30)
                     .padding(.bottom, 20)
-                    HStack {
-                        Text("Vibrate on alert")
-                            .foregroundColor(Color("Dark Blue"))
-                            .font(.custom("Avenir-Book", size: 16))
-                        Toggle(isOn: $vibrateOnAlert, label: {
-                            Text("")
-                        })
-                    }
-                    .padding(.horizontal, 30)
-                    .padding(.bottom, 20)
+//                    HStack {
+//                        Text("Vibrate on alert")
+//                            .foregroundColor(Color("Dark Blue"))
+//                            .font(.custom("Avenir-Book", size: 16))
+//                        Toggle(isOn: $vibrateOnAlert, label: {
+//                            Text("")
+//                        })
+//                    }
+//                    .padding(.horizontal, 30)
+//                    .padding(.bottom, 20)
                     HStack {
                         Group {
                             Text("Keep notifications for ") + Text("\(localNotificationManager.keepNotificationsForDays)").bold() + Text(" of days")
                         }
                         .foregroundColor(Color("Dark Blue"))
                         .font(.custom("Avenir-Book", size: 16))
-                        Stepper("", value: $localNotificationManager.keepNotificationsForDays, in: (0...7))
+                        Stepper("", value: $localNotificationManager.keepNotificationsForDays, in: (1...7))
                     }
                     .padding(.horizontal, 30)
                     .padding(.bottom, 20)
