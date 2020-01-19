@@ -33,8 +33,10 @@ class TodoListViewModel: ObservableObject {
     }()
     
     func createUpcomingTodos(_ todos: FetchedResults<Todo>) -> [DailyTodo] {
+        
         var result = [DailyTodo]()
         for todo in todos {
+            
             let date = Utils.dateToString(todo.due)
             if let index = result.firstIndex(where: {$0.date == date}) {
                 result[index].todos.append(todo)
@@ -56,11 +58,14 @@ class TodoListViewModel: ObservableObject {
     }
     
     func delete(_ todo: Todo) {
-        let todoId = todo.objectID
-        context.perform {
-            let todo = self.context.object(with: todoId)
-            self.context.delete(todo)
-            try? self.context.save()
-        }
+        self.context.delete(todo)
+        localNotificationManager.removeNotification(id: todo.id!.uuidString)
+        try? self.context.save()
     }
+}
+
+struct UpcomingTodo {
+    var objectID: NSManagedObjectID
+    var completed: Bool
+    var title: String
 }

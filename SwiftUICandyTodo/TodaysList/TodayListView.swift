@@ -7,8 +7,10 @@
 //
 
 import SwiftUI
+import CoreData
 
-struct TodayListView: View {    
+struct TodayListView: View {
+    @Environment(\.managedObjectContext) var context
     @ObservedObject var viewModel = TodoListViewModel()
     @FetchRequest(entity: Todo.entity(), sortDescriptors: [NSSortDescriptor(key: "due", ascending: true)], predicate: TodoListViewModel.todayPredicate) var todos: FetchedResults<Todo>
     
@@ -24,12 +26,12 @@ struct TodayListView: View {
                     TitleView(title: "TO-DO", subtitle: "Today's list")
                     List{
                         ForEach(todos, id:\.id) { todo in
-                            TodoListViewRow(todo: todo, toggleCompleted: self.toggleCompleted, delete: self.delete)
+                            TodoListViewRow(todo: todo)
                         }
                         .onDelete(perform: {indexSet in
                             for index in indexSet {
                                 let todo = self.todos[index]
-                                self.delete(todo)
+                                self.viewModel.delete(todo)
                             }
                         })
                     }
@@ -42,11 +44,4 @@ struct TodayListView: View {
         }
     }
     
-    func toggleCompleted(_ todo: Todo) {
-        viewModel.toggleCompleted(todo)
-    }
-    
-    func delete(_ todo: Todo) {
-        viewModel.delete(todo)        
-    }
 }
