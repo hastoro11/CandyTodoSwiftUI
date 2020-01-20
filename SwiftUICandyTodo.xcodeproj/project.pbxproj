@@ -25,8 +25,10 @@
 		8C990A9C23C310F6001E4C87 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C990A9A23C310F6001E4C87 /* User+CoreDataProperties.swift */; };
 		8C9FB7FF23C86D8800250E8E /* TodoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9FB7FE23C86D8800250E8E /* TodoListViewModel.swift */; };
 		8C9FB80323CB08F000250E8E /* NotificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9FB80223CB08F000250E8E /* NotificationViewModel.swift */; };
-		8CB723A223C721A8007E93B9 /* Notification+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB723A023C721A8007E93B9 /* Notification+CoreDataClass.swift */; };
-		8CB723A323C721A8007E93B9 /* Notification+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB723A123C721A8007E93B9 /* Notification+CoreDataProperties.swift */; };
+		8CB98AC023D4A1050004FF1F /* Reminder+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB98ABE23D4A1050004FF1F /* Reminder+CoreDataClass.swift */; };
+		8CB98AC123D4A1050004FF1F /* Reminder+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB98ABF23D4A1050004FF1F /* Reminder+CoreDataProperties.swift */; };
+		8CB98AC323D4AA8B0004FF1F /* ReminderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB98AC223D4AA8B0004FF1F /* ReminderManager.swift */; };
+		8CB98AC523D4C2B60004FF1F /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB98AC423D4C2B60004FF1F /* LocalNotificationManager.swift */; };
 		8CBBCF2E23BF2A1700D56452 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBBCF2D23BF2A1700D56452 /* AppDelegate.swift */; };
 		8CBBCF3023BF2A1700D56452 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBBCF2F23BF2A1700D56452 /* SceneDelegate.swift */; };
 		8CBBCF3323BF2A1700D56452 /* SwiftUICandyTodo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8CBBCF3123BF2A1700D56452 /* SwiftUICandyTodo.xcdatamodeld */; };
@@ -38,7 +40,6 @@
 		8CCAA43F23C35C5700AAEEE8 /* Priority.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCAA43E23C35C5700AAEEE8 /* Priority.swift */; };
 		8CCAA45023C4821800AAEEE8 /* Todo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCAA44E23C4821800AAEEE8 /* Todo+CoreDataClass.swift */; };
 		8CCAA45123C4821800AAEEE8 /* Todo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCAA44F23C4821800AAEEE8 /* Todo+CoreDataProperties.swift */; };
-		8CCAA45323C482A100AAEEE8 /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCAA45223C482A100AAEEE8 /* LocalNotificationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,8 +61,10 @@
 		8C990A9A23C310F6001E4C87 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		8C9FB7FE23C86D8800250E8E /* TodoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListViewModel.swift; sourceTree = "<group>"; };
 		8C9FB80223CB08F000250E8E /* NotificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewModel.swift; sourceTree = "<group>"; };
-		8CB723A023C721A8007E93B9 /* Notification+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+CoreDataClass.swift"; sourceTree = "<group>"; };
-		8CB723A123C721A8007E93B9 /* Notification+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		8CB98ABE23D4A1050004FF1F /* Reminder+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reminder+CoreDataClass.swift"; sourceTree = "<group>"; };
+		8CB98ABF23D4A1050004FF1F /* Reminder+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reminder+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		8CB98AC223D4AA8B0004FF1F /* ReminderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderManager.swift; sourceTree = "<group>"; };
+		8CB98AC423D4C2B60004FF1F /* LocalNotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
 		8CBBCF2A23BF2A1700D56452 /* SwiftUICandyTodo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUICandyTodo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CBBCF2D23BF2A1700D56452 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8CBBCF2F23BF2A1700D56452 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -75,7 +78,6 @@
 		8CCAA43E23C35C5700AAEEE8 /* Priority.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Priority.swift; sourceTree = "<group>"; };
 		8CCAA44E23C4821800AAEEE8 /* Todo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Todo+CoreDataClass.swift"; sourceTree = "<group>"; };
 		8CCAA44F23C4821800AAEEE8 /* Todo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Todo+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		8CCAA45223C482A100AAEEE8 /* LocalNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,7 +116,8 @@
 			children = (
 				8CCAA45423C5B21F00AAEEE8 /* CoreData Classes */,
 				8CCAA43E23C35C5700AAEEE8 /* Priority.swift */,
-				8CCAA45223C482A100AAEEE8 /* LocalNotificationManager.swift */,
+				8CB98AC423D4C2B60004FF1F /* LocalNotificationManager.swift */,
+				8CB98AC223D4AA8B0004FF1F /* ReminderManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -223,8 +226,8 @@
 		8CCAA45423C5B21F00AAEEE8 /* CoreData Classes */ = {
 			isa = PBXGroup;
 			children = (
-				8CB723A023C721A8007E93B9 /* Notification+CoreDataClass.swift */,
-				8CB723A123C721A8007E93B9 /* Notification+CoreDataProperties.swift */,
+				8CB98ABE23D4A1050004FF1F /* Reminder+CoreDataClass.swift */,
+				8CB98ABF23D4A1050004FF1F /* Reminder+CoreDataProperties.swift */,
 				8CCAA44E23C4821800AAEEE8 /* Todo+CoreDataClass.swift */,
 				8CCAA44F23C4821800AAEEE8 /* Todo+CoreDataProperties.swift */,
 				8C990A9923C310F6001E4C87 /* User+CoreDataClass.swift */,
@@ -306,18 +309,17 @@
 			files = (
 				8C990A8C23C1FB35001E4C87 /* ProfileTitleView.swift in Sources */,
 				8CBBCF2E23BF2A1700D56452 /* AppDelegate.swift in Sources */,
-				8CB723A323C721A8007E93B9 /* Notification+CoreDataProperties.swift in Sources */,
 				8C990A9C23C310F6001E4C87 /* User+CoreDataProperties.swift in Sources */,
 				8C724F9423BF363F00C48050 /* CommonViews.swift in Sources */,
-				8CB723A223C721A8007E93B9 /* Notification+CoreDataClass.swift in Sources */,
 				8CBBCF3023BF2A1700D56452 /* SceneDelegate.swift in Sources */,
-				8CCAA45323C482A100AAEEE8 /* LocalNotificationManager.swift in Sources */,
 				8CCAA43D23C35C1400AAEEE8 /* NewTodoViewModel.swift in Sources */,
+				8CB98AC123D4A1050004FF1F /* Reminder+CoreDataProperties.swift in Sources */,
 				8C724FB523BFEA5000C48050 /* NewTodoView.swift in Sources */,
 				8C724F9D23BF708500C48050 /* TodoListViewRow.swift in Sources */,
 				8C990A9B23C310F6001E4C87 /* User+CoreDataClass.swift in Sources */,
 				8C990A8823C1F445001E4C87 /* EditProfileView.swift in Sources */,
 				8C724F9123BF329B00C48050 /* TodayListView.swift in Sources */,
+				8CB98AC523D4C2B60004FF1F /* LocalNotificationManager.swift in Sources */,
 				8CBBCF3523BF2A1700D56452 /* ContentView.swift in Sources */,
 				8C990A8E23C20B9F001E4C87 /* SelectPhotoView.swift in Sources */,
 				8C724FA323BF874500C48050 /* UpcomingListView.swift in Sources */,
@@ -326,11 +328,13 @@
 				8CCAA45123C4821800AAEEE8 /* Todo+CoreDataProperties.swift in Sources */,
 				8C724FA023BF860900C48050 /* Utils.swift in Sources */,
 				8C724FB123BFABBD00C48050 /* ProfileView.swift in Sources */,
+				8CB98AC323D4AA8B0004FF1F /* ReminderManager.swift in Sources */,
 				8C990A8A23C1F7D3001E4C87 /* CustomTextFieldStyle.swift in Sources */,
 				8CBBCF3323BF2A1700D56452 /* SwiftUICandyTodo.xcdatamodeld in Sources */,
 				8C9FB7FF23C86D8800250E8E /* TodoListViewModel.swift in Sources */,
 				8CCAA43F23C35C5700AAEEE8 /* Priority.swift in Sources */,
 				8C724F9923BF6E8900C48050 /* TitleView.swift in Sources */,
+				8CB98AC023D4A1050004FF1F /* Reminder+CoreDataClass.swift in Sources */,
 				8C724FA823BFA1E000C48050 /* NotificationsView.swift in Sources */,
 				8C9FB80323CB08F000250E8E /* NotificationViewModel.swift in Sources */,
 			);

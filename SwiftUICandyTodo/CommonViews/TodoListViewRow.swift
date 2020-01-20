@@ -11,7 +11,7 @@ import SwiftUI
 struct TodoListViewRow: View {
     @Environment(\.managedObjectContext) var context
     @ObservedObject var todoViewListModel = TodoListViewModel()
-    var localNotificationManager = LocalNotificationManager()
+    
     var todo: Todo
     var currentTodo: Todo {
         context.object(with: todo.objectID) as! Todo
