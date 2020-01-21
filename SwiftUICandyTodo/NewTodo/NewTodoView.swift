@@ -14,7 +14,6 @@ struct NewTodoView: View {
     @ObservedObject var viewModel = NewTodoViewModel()
     @ObservedObject var localNotificationManager = LocalNotificationManager()
     
-    @State var insertIntoCalendaer = true
     var body: some View {
         ZStack(alignment: .top) {
             Color("Pink")                
@@ -113,7 +112,7 @@ extension NewTodoView {
                     Text("Insert into calendar")
                         .foregroundColor(Color("Dark Blue"))
                         .font(.custom("Avenir-Book", size: 16))
-                    Toggle(isOn: $insertIntoCalendaer, label: {
+                    Toggle(isOn: $viewModel.insertIntoCalendar, label: {
                         Text("")
                     })
                 } .padding(.horizontal, 30)
