@@ -12,7 +12,8 @@ struct NewTodoView: View {
     @Environment(\.presentationMode) var presentationMode
     
     @ObservedObject var viewModel = NewTodoViewModel()
-        
+    @ObservedObject var localNotificationManager = LocalNotificationManager()
+    
     @State var insertIntoCalendaer = true
     var body: some View {
         ZStack(alignment: .top) {
@@ -98,14 +99,16 @@ extension NewTodoView {
             }
             
             Section(header: SectionHeader(title: "More Options"), content: {
-                HStack {
-                    Text("Notify about this")
-                        .foregroundColor(Color("Dark Blue"))
-                        .font(.custom("Avenir-Book", size: 16))
-                    Toggle(isOn: $viewModel.getNotified, label: {
-                        Text("")
-                    })
-                } .padding(.horizontal, 30)
+                if localNotificationManager.sendNotifications {
+                    HStack {
+                        Text("Notify about this")
+                            .foregroundColor(Color("Dark Blue"))
+                            .font(.custom("Avenir-Book", size: 16))
+                        Toggle(isOn: $viewModel.getNotified, label: {
+                            Text("")
+                        })
+                    } .padding(.horizontal, 30)
+                }
                 HStack {
                     Text("Insert into calendar")
                         .foregroundColor(Color("Dark Blue"))
