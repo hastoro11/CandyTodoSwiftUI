@@ -50,5 +50,9 @@ class NewTodoViewModel: ObservableObject {
         if getNotified {
             reminderManager.addReminder(id: id.uuidString, title: "Reminder", subtitle: self.title, due: self.due)            
         }
+        
+        if insertIntoCalendar {
+            calendarManager.saveIntoCalendar(title: self.title, startDate: self.due)
+        }
     }       
 }

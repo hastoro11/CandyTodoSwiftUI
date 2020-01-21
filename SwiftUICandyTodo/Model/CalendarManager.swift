@@ -14,7 +14,7 @@ class CalendarManager {
     let eventStore = EKEventStore()
     
     func checkAuthorization(completion: @escaping (Bool) -> Void) {
-        switch EKEventStore.authorizationStatus(for: .event) {        
+        switch EKEventStore.authorizationStatus(for: .event) {
         case .authorized:
             completion(true)
         default:
@@ -24,6 +24,19 @@ class CalendarManager {
                 }
                 
             }
+        }
+    }
+    
+    func saveIntoCalendar(title: String, startDate: Date) {
+        let event = EKEvent(eventStore: eventStore)
+        event.title = title
+        event.startDate = startDate
+        event.endDate = startDate.addingTimeInterval(30 * 60)
+        event.calendar = eventStore.defaultCalendarForNewEvents
+        do {
+            try eventStore.save(event, span: .thisEvent)
+        } catch {
+            print("Error saving in calendar:", error)
         }
     }
     
