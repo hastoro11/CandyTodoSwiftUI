@@ -64,9 +64,7 @@ class NotificationViewModel: ObservableObject {
     func listReminders(reminders: FetchedResults<Reminder>) -> [SectionedReminder] {
         var result = [SectionedReminder]()
         let upperLimit = Calendar.current.date(byAdding: .day, value: -self.keepNotificationsForDays, to: Date()) ?? Date()
-        print("limit", upperLimit)
         for reminder in reminders {
-            print("id", reminder.id)            
             if (reminder.due > Date() || reminder.due < upperLimit) {
                 continue
             }
@@ -85,12 +83,7 @@ class NotificationViewModel: ObservableObject {
     init() {
         keepNotificationsForDays = UserDefaults.standard.integer(forKey: "KeepNotificationsForDays")
         
-        UNUserNotificationCenter.current().getDeliveredNotifications { (notifications) in
-            for n in notifications {
-                print("delivered", n.request.content.subtitle, n.date)
-            }
-        }
-        NotificationCenter.default.publisher(for: Notification.Name.NSManagedObjectContextDidSave, object: nil)
+        _ = NotificationCenter.default.publisher(for: Notification.Name.NSManagedObjectContextDidSave, object: nil)
         
     }
 }
