@@ -29,6 +29,7 @@
 		8CB98AC123D4A1050004FF1F /* Reminder+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB98ABF23D4A1050004FF1F /* Reminder+CoreDataProperties.swift */; };
 		8CB98AC323D4AA8B0004FF1F /* ReminderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB98AC223D4AA8B0004FF1F /* ReminderManager.swift */; };
 		8CB98AC523D4C2B60004FF1F /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB98AC423D4C2B60004FF1F /* LocalNotificationManager.swift */; };
+		8CB98AC723D710E90004FF1F /* CalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB98AC623D710E90004FF1F /* CalendarManager.swift */; };
 		8CBBCF2E23BF2A1700D56452 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBBCF2D23BF2A1700D56452 /* AppDelegate.swift */; };
 		8CBBCF3023BF2A1700D56452 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBBCF2F23BF2A1700D56452 /* SceneDelegate.swift */; };
 		8CBBCF3323BF2A1700D56452 /* SwiftUICandyTodo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8CBBCF3123BF2A1700D56452 /* SwiftUICandyTodo.xcdatamodeld */; };
@@ -65,6 +66,7 @@
 		8CB98ABF23D4A1050004FF1F /* Reminder+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reminder+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		8CB98AC223D4AA8B0004FF1F /* ReminderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderManager.swift; sourceTree = "<group>"; };
 		8CB98AC423D4C2B60004FF1F /* LocalNotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
+		8CB98AC623D710E90004FF1F /* CalendarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarManager.swift; sourceTree = "<group>"; };
 		8CBBCF2A23BF2A1700D56452 /* SwiftUICandyTodo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUICandyTodo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CBBCF2D23BF2A1700D56452 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8CBBCF2F23BF2A1700D56452 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				8CCAA45423C5B21F00AAEEE8 /* CoreData Classes */,
 				8CCAA43E23C35C5700AAEEE8 /* Priority.swift */,
 				8CB98AC423D4C2B60004FF1F /* LocalNotificationManager.swift */,
+				8CB98AC623D710E90004FF1F /* CalendarManager.swift */,
 				8CB98AC223D4AA8B0004FF1F /* ReminderManager.swift */,
 			);
 			path = Model;
@@ -337,6 +340,7 @@
 				8CB98AC023D4A1050004FF1F /* Reminder+CoreDataClass.swift in Sources */,
 				8C724FA823BFA1E000C48050 /* NotificationsView.swift in Sources */,
 				8C9FB80323CB08F000250E8E /* NotificationViewModel.swift in Sources */,
+				8CB98AC723D710E90004FF1F /* CalendarManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
