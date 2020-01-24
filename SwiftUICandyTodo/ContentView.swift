@@ -11,66 +11,77 @@ import SwiftUI
 struct ContentView: View {    
     @State var showNewTodoView = false
     
+    @State var showSplash = true
     var body: some View {
         ZStack {
-            TabView {
-                TodayListView()       
-                    .tabItem({
-                        Image(systemName: "list.bullet")
-                            .font(.system(size: 24))
+            ZStack {
+                TabView {
+                    TodayListView()
+                        .tabItem({
+                            Image(systemName: "list.bullet")
+                                .font(.system(size: 24))
+                        })
+                        .tag(0)
+                    
+                    UpcomingListView()
+                        .tabItem({
+                            Image(systemName: "clock")
+                                .font(.system(size: 24))
+                        })
+                        .tag(1)
+                    
+                    Text("")
+                        .tabItem({
+                            Text("")
+                                .font(.system(size: 24))
+                        })
+                    
+                    
+                    NotificationsView()
+                        .tabItem({
+                            Image(systemName: "bell")
+                                .font(.system(size: 24))
+                        })
+                        .tag(2)
+                    
+                    ProfileView()
+                        .tabItem({
+                            Image(systemName: "person")
+                                .font(.system(size: 24))
+                        })
+                        .tag(3)
+                }
+                .edgesIgnoringSafeArea(.top)
+                .accentColor(Color("Dark Blue"))
+                VStack {
+                    Spacer()
+                    Button(action: {
+                        self.showNewTodoView = true
+                    }, label: {
+                        Image(systemName: "plus")
+                            .font(.title)
+                            .foregroundColor(.white)
+                            .padding(24)
+                            .background(Color("Dark Blue"))
+                            .clipShape(Circle())
                     })
-                    .tag(0)
-                
-                UpcomingListView()
-                    .tabItem({
-                        Image(systemName: "clock")
-                            .font(.system(size: 24))
-                    })
-                    .tag(1)
-                
-                Text("")
-                    .tabItem({
-                        Text("")
-                            .font(.system(size: 24))
-                    })
-                
-                
-                NotificationsView()
-                    .tabItem({
-                        Image(systemName: "bell")
-                            .font(.system(size: 24))
-                    })
-                    .tag(2)
-                
-                ProfileView()
-                    .tabItem({
-                        Image(systemName: "person")
-                            .font(.system(size: 24))
-                    })
-                    .tag(3)
+                        .padding(.bottom, 10)
+                        .shadow(radius: 10, x: 0, y: 10)
+                }
             }
-            .edgesIgnoringSafeArea(.top)
-            .accentColor(Color("Dark Blue"))
-            VStack {
-                Spacer()
-                Button(action: {
-                    self.showNewTodoView = true
-                }, label: {
-                    Image(systemName: "plus")
-                        .font(.title)
-                        .foregroundColor(.white)
-                        .padding(24)
-                        .background(Color("Dark Blue"))
-                        .clipShape(Circle())
-                })
-                    .padding(.bottom, 10)
-                    .shadow(radius: 10, x: 0, y: 10)
+            .sheet(isPresented: $showNewTodoView, content: {
+                NewTodoView()
+            })
+            SplasView()
+                .opacity(showSplash ? 1 : 0)
+                .onAppear{
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+                        withAnimation(Animation.easeInOut(duration: 0.5)) {
+                            self.showSplash = false
+                        }
+                    })
             }
-        }        
-        .sheet(isPresented: $showNewTodoView, content: {
-            NewTodoView()
-                
-        })
+        }
     }
     
     init() {
