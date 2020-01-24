@@ -45,8 +45,7 @@ struct NotificationsView: View {
                     
                 }
             }
-            .onAppear {
-                print("appear")
+            .onAppear {                
                 self.viewModel.refresh()
             }
         }

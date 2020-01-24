@@ -74,7 +74,7 @@ struct ContentView: View {
     }
     
     init() {
-        print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!)
+//        print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!)
         UITabBar.appearance().backgroundColor = UIColor(named: "Pink")
     }
 }
