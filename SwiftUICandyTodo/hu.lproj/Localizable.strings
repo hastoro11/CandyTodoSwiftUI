@@ -1,0 +1,34 @@
+/* 
+  Localizable.strings
+  SwiftUICandyTodo
+
+  Created by Gabor Sornyei on 2020. 01. 27..
+  Copyright © 2020. Gabor Sornyei. All rights reserved.
+*/
+"TO-DO"="FELADAT";
+"Today's list"="Mai feladatok";
+"SCHEDULER"="TERVEZŐ";
+"Upcoming tasks"="További feladatok";
+"Today"="Ma";
+"Tomorrow"="Holnap";
+"Yesterday"="Tegnap";
+"NOTIFICATIONS"="ÉRTESÍTÉSEK";
+"Alerts"="Emlékeztetők";
+"PROFILE"="FELHASZNÁLÓ";
+"Notification Settings"="Értesítések";
+"Send notifications"="Értesítéseket kérek";
+"Keep notifications for "="Értesítések mentése ";
+" of days"=" napig";
+"Name here..."="Név...";
+"Email here..."="Email...";
+"EDIT PROFILE"="SZERKESZTÉS";
+"NEW TASK"="ÚJ FELADAT";
+"Write here..."="Megnevezés...";
+"Complete by:"="Határidő:";
+"Priority"="Fontosság";
+"More Options"="További opciók";
+"Insert into calendar"="Tedd a naptárba";
+"High"="Lényeges";
+"Normal"="Normál";
+"Low"="Nem annyira";
+"Notify about this"="Értesítést kérek";

@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct ProfileTitleView: View {
-    var title: String
+    var title: LocalizedStringKey
     var user: User?
     @Binding var showEditProfile: Bool
     var body: some View {

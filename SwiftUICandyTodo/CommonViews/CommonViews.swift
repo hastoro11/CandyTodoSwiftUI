@@ -41,7 +41,7 @@ struct SectionHeader: View {
     var title: String
     var body: some View {
         HStack {
-            Text(title)
+            Text(LocalizedStringKey(stringLiteral: title))
                 .font(.custom("Avenir-Book", size: 16))
                 .foregroundColor(Color("Light Blue"))
                 .padding()
