@@ -9,8 +9,8 @@
 import SwiftUI
 
 struct TitleView: View {
-    var title: String
-    var subtitle: String = ""
+    var title: LocalizedStringKey
+    var subtitle: LocalizedStringKey = ""
     var body: some View {
         ZStack(alignment: .top) {
             Color("Pink")

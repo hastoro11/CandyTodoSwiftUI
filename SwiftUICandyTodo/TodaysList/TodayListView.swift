@@ -22,7 +22,7 @@ struct TodayListView: View {
                 
                 Color.white
                 
-                VStack {
+                VStack {                    
                     TitleView(title: "TO-DO", subtitle: "Today's list")
                     List{
                         ForEach(todos, id:\.id) { todo in
