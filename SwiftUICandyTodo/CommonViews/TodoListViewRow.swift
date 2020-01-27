@@ -27,6 +27,15 @@ struct TodoListViewRow: View {
             Text(todo.title + (refreshing ? "" : ""))
                 .font(.custom("Avenir-Book", size: 16))
                 .foregroundColor(todo.completed ? Color("Light Blue") : Color("Dark Blue"))
+            Spacer()
+            if todo.priority != 2 {
+                Circle()
+                .fill(
+                    todo.priority == 0 ? Color("Red") : Color("Green"))
+                .frame(width: 16)
+            }
+            
+            
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(.horizontal, 30)
